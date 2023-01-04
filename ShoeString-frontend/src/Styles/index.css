@@ -21,6 +21,9 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   font-family: 'PT Sans Narrow', sans-serif;
   background: var(--color-bg);
   color: var(--color-main);

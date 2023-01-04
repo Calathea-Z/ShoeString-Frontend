@@ -1,4 +1,4 @@
-import '../Styles/navbar.css';
+import '../Styles/navTop.css';
 import {VscSettingsGear} from 'react-icons/vsc';
 import {GiRopeCoil} from 'react-icons/gi';
 import {HiSearch} from 'react-icons/hi';
