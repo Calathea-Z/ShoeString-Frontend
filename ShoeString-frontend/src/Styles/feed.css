@@ -3,3 +3,7 @@
     flex-direction: column;
     margin-top: 120px;
 }
+
+.no-content {
+    height: 500px;
+}

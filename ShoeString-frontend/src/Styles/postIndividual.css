@@ -66,10 +66,19 @@
 .post-individual-comment {
     background: var(--color-bg-alt-two);
     padding: 10px;
-    font-size:20px;
+    font-size:18px;
 }
 
 .post-individual-comment span {
-    font-size: 20px;
     font-weight: bolder;
+}
+
+.post-individual-likes{
+    background: var(--color-bg-alt-two);
+    padding-left: 10px;
+}
+
+.post-individual-likes span {
+    font-weight: bolder;
+    font-size: 19px;
 }

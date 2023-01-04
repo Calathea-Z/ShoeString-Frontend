@@ -4,6 +4,8 @@ import {FiMapPin} from 'react-icons/fi'
 import {BsFillChatSquareTextFill} from 'react-icons/bs'
 
 function PostIndividual({id_, username, userphoto, img, location, comment, likes}) {
+
+
   return (
     <div className='post-individual-full'>
 
@@ -25,9 +27,7 @@ function PostIndividual({id_, username, userphoto, img, location, comment, likes
             </div>
         </div>
         <div className='post-individual-likes'>
-          if{likes.length}{
-            <p>Liked by {likes} fellow travelers</p>
-          }   
+            <p>Liked by <span>{likes}</span> fellow travelers</p>
         </div>
         <div className='post-individual-comment'>
         <p><span>{username}</span>{' '}{comment}</p>

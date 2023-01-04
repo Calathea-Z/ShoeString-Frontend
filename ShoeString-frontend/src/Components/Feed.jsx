@@ -10,7 +10,7 @@ const fakePost = [
         img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.pMbRD3YNuuS8Y98caOyCqgHaE7%26pid%3DApi&f=1&ipt=c08ec5abd60bb027601c7843e741d89861bd430651ee2c65b48336dc71718adc&ipo=images",
         location: "London, England",
         comment: "I got to these cool mountains. To get there you have to turn left at THAT tree not THIS tree... got it?",
-        likes: null,
+        likes: 0,
     },
     {
         id_: 12345,
@@ -35,11 +35,16 @@ const fakePost = [
 
 function Feed() {
   return (
+        fakePost.length ?
     <div className='feed-full'>
         {fakePost.map((post) => (
             <PostIndividual key={post.id} id={post.id} username={post.username} userphoto={post.userphoto} img={post.img} location={post.location} comment={post.comment} likes={post.likes} />
       ))}
     </div>
+        : 
+        <div className='no-content'>
+            <p> That's all the content! </p>
+        </div>  
   )
 }
 
