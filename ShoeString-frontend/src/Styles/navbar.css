@@ -1,3 +1,59 @@
-nav {
-    background: rgba(0,0,0,0.3);
+input {
+    background-color: rgb(240, 235, 235);
+    width: 100%;
+    padding-left: 20px;
+    border-radius: 5px;
 }
+
+input:hover {
+    border: solid black 1px;
+}
+
+nav {
+    display: flex;
+    background: rgba(227, 10, 231, 0.039);
+    font-size: 1rem;
+    padding: 1.8rem;
+    z-index: 2;
+}
+
+nav a {
+    background: transparent;
+    color: var(--color-bg-alt);
+    font-size: 2.5rem;  
+}
+
+nav a:hover {
+    color: black;
+}
+
+.full-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-comp {
+    display: relative;
+}
+
+
+
+.search-bar {
+    border-radius: 3px;
+    margin-top: 35px;
+    display: flex;
+    justify-content: space-between;
+    gap: .5rem
+}
+
+
+
+#search-icon {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+}
+
+
+
