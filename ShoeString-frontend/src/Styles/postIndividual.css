@@ -62,3 +62,14 @@
 .post-button:hover {
     color: black;
 }
+
+.post-individual-comment {
+    background: var(--color-bg-alt-two);
+    padding: 10px;
+    font-size:20px;
+}
+
+.post-individual-comment span {
+    font-size: 20px;
+    font-weight: bolder;
+}
