@@ -20,11 +20,12 @@ nav {
 nav a {
     background: transparent;
     color: var(--color-bg-alt);
-    font-size: 2.5rem;  
+    font-size: 4rem;  
+    padding-left: 1rem;
 }
 
 nav a:hover {
-    color: black;
+    color: rgb(247, 247, 247);
 }
 
 .full-top {
@@ -33,7 +34,7 @@ nav a:hover {
     top: 0;
     display: flex;
     justify-content: space-between;
-    box-shadow: 0px 0px 7px 0px var(--color-outline);
+    box-shadow: 0px 0px 6px 0px var(--color-outline);;
     z-index: 50;
 
 }
@@ -41,6 +42,11 @@ nav a:hover {
 .nav-comp {
     display: relative;
     margin:-15px;
+    font-size: 60px;
+}
+
+.nav-comp span {
+    color:rgb(203, 248, 250);
 }
 
 
