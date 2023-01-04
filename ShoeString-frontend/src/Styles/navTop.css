@@ -11,7 +11,7 @@ input:hover {
 
 nav {
     display: flex;
-    background: rgba(227, 10, 231, 0.039);
+    background: rgb(231, 187, 10);
     font-size: 1rem;
     padding: 1.8rem;
     z-index: 2;
