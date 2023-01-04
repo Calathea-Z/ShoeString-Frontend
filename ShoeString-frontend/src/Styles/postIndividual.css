@@ -1,0 +1,16 @@
+.post-individual-full {
+    border: 1px solid green;
+    border-radius: 5px;
+    box-shadow: 0px 0px 2px 0px var(--color-outline);
+    overflow: hidden;
+    padding: 40px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.post-individual-full:hover {
+    border: solid black 1px;
+
+}

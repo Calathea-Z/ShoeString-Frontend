@@ -29,11 +29,10 @@ const fakePost = [
 
 function Feed() {
   return (
-    <div>
-        {posts.map((post) => (
+    <div className='feed-full'>
+        {fakePost.map((post) => (
             <PostIndividual key={post.id} id={post.id} username={post.username} userphoto={post.userphoto} img={post.img} comment={post.comment} />
-        )}
-      <PostIndividual />
+      ))}
     </div>
   )
 }

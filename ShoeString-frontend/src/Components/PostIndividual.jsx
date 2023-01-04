@@ -1,8 +1,8 @@
-import React from 'react'
+import '../Styles/postIndividual.css';
 
-function PostIndividual() {
+function PostIndividual({id_, username, userphoto, img, comment}) {
   return (
-    <div>
+    <div className='post-individual-full'>
       <p>
         I am a post test! Please work?
       </p>
@@ -11,3 +11,4 @@ function PostIndividual() {
 }
 
 export default PostIndividual
+ 
