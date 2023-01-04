@@ -15,8 +15,10 @@ html {
 :root{
     --color-bg: rgb(245, 226, 139);
     --color-bg-alt: rgb(139, 245, 243);
+    --color-main: rgb(89, 89, 89);
 }
 
 body {
   background: var(--color-bg);
+  color: var(--color-main);
 }
