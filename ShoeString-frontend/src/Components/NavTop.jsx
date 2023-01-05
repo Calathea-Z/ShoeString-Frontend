@@ -12,8 +12,8 @@ const NavTop = () => {
       <motion.div
       initial={{opacity: 0}}
       whileInView={{opacity:1}}
-      whileHover={{scale:1.2}}
-      transition={{duration:1.2}}
+      whileHover={{scale:1.4}}
+      transition={{duration:1.8}}
       className='nav-comp'>
         <Link to='/'><span><GiSteeltoeBoots/></span></Link>
       </motion.div>

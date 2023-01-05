@@ -1,7 +1,11 @@
 import '../Styles/feed.css';
 import './PostCard';
 import PostCard from './PostCard';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
+
+//This fill be removed once connected to backend.
 const fakePost = [
     {
         id_: 12345,
@@ -34,17 +38,42 @@ const fakePost = [
 
 
 function Feed() {
-  return (
-        fakePost.length ?
+
+//---Everything here is for getting real posts when ready
+
+    const [post, setPost] = useState([]);
+
+    const BE_URL = "http://localhost:4000/posts";
+
+    const getPosts = async () => {
+      try {
+        //Get data from BE
+        const response = await fetch(BE_URL);
+        const allPosts = await response.json();
+        setPost(allPosts);
+      }catch (err){
+        console.log(err);
+      }
+    }
+
+    useEffect(() => {
+        getPosts()
+    }, []);
+
+//-----------------------------------------------------------
+  return ( 
+  <>
+
+  {/* Will change the below to correct variable names, etc. */}
     <div className='feed-full'>
-        {fakePost.map((post) => (
+        {fakePost?.map((post) => {
+            return (
             <PostCard key={post.id} id={post.id} username={post.username} userphoto={post.userphoto} img={post.img} location={post.location} comment={post.comment} likes={post.likes} />
-      ))}
+            )
+        })}
     </div>
-        : 
-        <div className='no-content'>
-        <p> That's all the content! </p>
-        </div>  
+ </>
+    
   )
 }
 

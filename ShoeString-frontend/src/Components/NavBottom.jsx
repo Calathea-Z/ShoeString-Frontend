@@ -7,16 +7,7 @@ import {HiUserCircle} from 'react-icons/hi';
 
 function NavBottom() {
   return (
-    <motion.nav
-    initial={{
-        x: -200, 
-        opacity: 1,
-        }}
-      transition={{ duration: .09}}
-      whileInView={{
-        x: 0,
-        opacity: 1
-        }}
+    <nav
      className='full-bottom'>
       <motion.div whileHover={{scale:1.1}} transition={{duration:.8}} className='nav-comp'>
         <Link to='/search'><HiSearch /></Link>
@@ -27,7 +18,7 @@ function NavBottom() {
       <motion.div whileHover={{scale:1.1}} transition={{duration:.8}} className='nav-comp'>
         <Link to='/profile'><HiUserCircle /></Link>
       </motion.div>
-    </motion.nav>
+    </nav>
   )
 }
 

@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 
 function PostCard({id_, username, userphoto, img, location, comment, likes}) {
 
+  // **Add in state for comments here**
 
   return (
     <div className='post-individual-full'>
@@ -37,6 +38,8 @@ function PostCard({id_, username, userphoto, img, location, comment, likes}) {
         <div className='post-individual-comment'>
         <p><span>{username}</span>{' '}{comment}</p>
         </div>
+
+        {/* This is where we would set the state for comments if we get to that point */}
         <form className='post-comment-add' >
           <div className='post-icon'><BsFillChatSquareTextFill/></div>
           <input type='text' placeholder='Add a comment...' className = 'post-individual-comment' />
