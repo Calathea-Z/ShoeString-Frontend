@@ -51,7 +51,7 @@ function Feed() {
 
 //---Everything here is for getting real posts when ready
 
-    const [post, setPost] = useState([]);
+    const [post, setPost] = useState({});
 
     const getPosts = async () => {
       try {
@@ -74,7 +74,7 @@ function Feed() {
 
   {/* Will change the below to correct variable names, etc. */}
     <div className='feed-full'>
-        {allPosts?.map((post) => {
+        {post?.map((post) => {
             return (
             <PostCard key={post.id} id={post.id} title={post.title} username={post.username} userphoto={post.userphoto} img={post.img} location={post.location} body={post.body} comments={post.comments} likes={post.likes} tags={post.tags} />
             )
