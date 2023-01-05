@@ -1,0 +1,11 @@
+.feed-full{
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+    margin-bottom: 120px;
+    /* padding: 5px; */
+}
+
+.no-content {
+    height: 500px;
+}
