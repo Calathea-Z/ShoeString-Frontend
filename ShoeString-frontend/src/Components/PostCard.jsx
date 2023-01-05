@@ -16,6 +16,8 @@ function PostCard({id_, username, userphoto, img, location, comment, likes}) {
 
       <div className='post-individual-header'>
         <p>{username}</p>
+
+{/* ------This link will eventually lead to a specific users profile / history */}
         <Link to='profile/:id'>
           <motion.img whileHover={{scale:1.3}} transition={{duration:.8}} className='profile-photo' src={userphoto} alt={username}/>
         </Link>
@@ -43,8 +45,7 @@ function PostCard({id_, username, userphoto, img, location, comment, likes}) {
         <form className='post-comment-add' >
           <div className='post-icon'><BsFillChatSquareTextFill/></div>
           <input type='text' placeholder='Add a comment...' className = 'post-individual-comment' />
-          <motion.button whileHover={{scale:1.1}} transition={{duration:.8}} className='post-button'>Post</motion.button>
-            
+          <motion.button whileHover={{scale:1.1}} transition={{duration:.8}} className='post-button'>Post</motion.button>   
         </form>
     </div>
   )
