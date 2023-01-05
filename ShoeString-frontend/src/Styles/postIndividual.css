@@ -101,7 +101,10 @@
 
 form .post-individual-comment {
     color: rgb(49, 49, 49);
+}
 
+textform[type=text]:focus {
+    outline:none;
 }
 
 

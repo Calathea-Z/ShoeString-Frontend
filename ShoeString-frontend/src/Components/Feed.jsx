@@ -3,6 +3,7 @@ import './PostCard';
 import PostCard from './PostCard';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+const { MONGODB_URL } = process.env;
 
 
 //This fill be removed once connected to backend.
@@ -52,12 +53,10 @@ function Feed() {
 
     const [post, setPost] = useState([]);
 
-    const BE_URL = "http://localhost:4000/posts";
-
     const getPosts = async () => {
       try {
         //Get data from BE
-        const response = await fetch(BE_URL);
+        const response = await fetch(MONGODB_URL);
         const allPosts = await response.json();
         setPost(allPosts);
       }catch (err){
