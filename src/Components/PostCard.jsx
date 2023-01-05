@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 
 
-function PostCard({id_, username, userphoto, img, location, comment, likes}) {
+function PostCard({_id, username, userphoto, img, location, tags, comments, likes, body}) {
 
   // **Add in state for comments here**
 
@@ -38,7 +38,10 @@ function PostCard({id_, username, userphoto, img, location, comment, likes}) {
             <p>Liked by <span>{likes}</span> fellow travelers</p>
         </div>
         <div className='post-individual-comment'>
-        <p><span>{username}</span>{' '}{comment}</p>
+        <p><span>{username}</span>{' '}{body}</p>
+        </div>
+        <div className='post-individual-comment'>
+        <p>{tags}</p>
         </div>
 
         {/* This is where we would set the state for comments if we get to that point */}
