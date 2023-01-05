@@ -12,16 +12,15 @@ input:hover {
 nav {
     display: flex;
     background: var(--color-bg-alt-two);
-    font-size: 1rem;
-    padding: 1.8rem;
+    padding-top: 1.6rem; padding-bottom: .8rem;
     z-index: 2;
 }
 
 nav a {
     background: transparent;
     color: var(--color-bg-alt);
-    font-size: 4rem;  
-    padding-left: 1rem;
+    font-size: 2.5rem;  
+    padding: 2rem;
 }
 
 nav a:hover {
@@ -42,7 +41,7 @@ nav a:hover {
 .nav-comp {
     display: relative;
     margin:-15px;
-    font-size: 60px;
+ 
 }
 
 .nav-comp span {
@@ -51,20 +50,7 @@ nav a:hover {
 
 
 
-.search-bar {
-    border-radius: 3px;
-    margin-top: 30px;
-    display: flex;
-    justify-content: space-between;
-    gap: .5rem
-}
 
-#search-icon {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    pointer-events: none;
-}
 
 
 

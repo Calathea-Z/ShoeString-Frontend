@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import '../Styles/navBottom.css'
-import {GiSteeltoeBoots} from 'react-icons/gi';
+import {HiSearch} from 'react-icons/hi';
 import {FaPencilAlt} from 'react-icons/fa';
 import {HiUserCircle} from 'react-icons/hi';
 
@@ -8,24 +8,24 @@ function NavBottom() {
   return (
     <motion.nav
     initial={{
-        x: -400, 
+        x: -200, 
         opacity: 1,
         }}
-      transition={{ duration: 1.0}}
+      transition={{ duration: .09}}
       whileInView={{
         x: 0,
         opacity: 1
         }}
      className='full-bottom'>
-      <div className='nav-comp'>
-        <a href='#'><GiSteeltoeBoots /></a>
-      </div>
-      <div className='nav-comp'>
+      <motion.div whileHover={{scale:1.1}} transition={{duration:.8}} className='nav-comp'>
+        <a href='#'><HiSearch /></a>
+      </motion.div>
+      <motion.div whileHover={{scale:1.1}} transition={{duration:.8}}  className='nav-comp'>
         <a href='#post'><FaPencilAlt /></a>
-      </div>
-      <div className='nav-comp'>
+      </motion.div>
+      <motion.div whileHover={{scale:1.1}} transition={{duration:.8}} className='nav-comp'>
         <a href='#profile'><HiUserCircle /></a>
-      </div>
+      </motion.div>
     </motion.nav>
   )
 }

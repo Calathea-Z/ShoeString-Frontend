@@ -1,0 +1,14 @@
+.search-bar {
+    border-radius: 3px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    gap: .5rem
+}
+
+#search-icon {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+}
