@@ -1,6 +1,6 @@
 import '../Styles/feed.css';
-import './PostIndividual';
-import PostIndividual from './PostIndividual';
+import './PostCard';
+import PostCard from './PostCard';
 
 const fakePost = [
     {
@@ -38,12 +38,12 @@ function Feed() {
         fakePost.length ?
     <div className='feed-full'>
         {fakePost.map((post) => (
-            <PostIndividual key={post.id} id={post.id} username={post.username} userphoto={post.userphoto} img={post.img} location={post.location} comment={post.comment} likes={post.likes} />
+            <PostCard key={post.id} id={post.id} username={post.username} userphoto={post.userphoto} img={post.img} location={post.location} comment={post.comment} likes={post.likes} />
       ))}
     </div>
         : 
         <div className='no-content'>
-            <p> That's all the content! </p>
+        <p> That's all the content! </p>
         </div>  
   )
 }

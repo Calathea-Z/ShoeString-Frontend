@@ -4,7 +4,7 @@ import {HiSearch} from 'react-icons/hi';
 
 function Search() {
   return (
-    <div>
+    <div className='search'>
       <div className='search-bar'>
         <div id='search-icon'>
           <HiSearch/>
