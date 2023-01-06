@@ -2,7 +2,8 @@ import '../Styles/createPost.css'
 import { useState, useEffect } from 'react';
 import {BsFillChatSquareTextFill} from 'react-icons/bs'
 import { motion } from 'framer-motion';
-import UploadImage from './UploadImage';
+import UploadAndDisplayImage from './UploadAndDisplayImage';
+
 
 function CreatePost() {
 
@@ -13,6 +14,7 @@ function CreatePost() {
     username: '',
     location:'',
     body: '',
+    img: '',
   });
 
   //Set variable for URL (will change to whatever the backend address is for this call)
@@ -68,7 +70,7 @@ function CreatePost() {
         <h1>Create new post</h1>
       </div>
       <div className='photo-box'>
-        <UploadImage /> 
+        <UploadAndDisplayImage /> 
       </div>
       <form className='post-comment-add-' onSubmit={handleSubmit} >
         <div className= 'big-input-form'>

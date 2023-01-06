@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import '../Styles/navBottom.css'
 import {HiSearch} from 'react-icons/hi';
 import {FaPencilAlt} from 'react-icons/fa';
 import {HiUserCircle} from 'react-icons/hi';
+import '../Styles/navBottom.css'
 
 function NavBottom() {
   return (

@@ -9,7 +9,7 @@
 
 .create-card-top {
     width: 100%;
-    background: var(--color-bg-alt-two);
+    background-color: rgba(232, 232, 232, 0.779);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,19 +18,18 @@
     font-weight: bolder;
     padding: 10px;
     padding-right: 20px;
+    margin-bottom: 6px;
 }
 
 .photo-box {
-    height: 400px;
     width: 100%;
-    background-color: rgb(214, 241, 214);
     border-radius: 4px;
 }
 
 .flex-box {
     display: flex;
-    align-items: center;
-    gap:  10px;
+    align-items: flex-start;
+    gap: 10px;
 }
 
 form .big-comment-box {
