@@ -5,29 +5,27 @@ import { motion } from 'framer-motion';
 import UploadAndDisplayImage from './UploadAndDisplayImage';
 
 
-function CreatePost() {
+const CreatePost = (props) => {
 
   //Set up state for posts
-  const [post, setPost] = useState([]);
-  // This needs to be updated with all the things the user could add with post.
+  const [post, setPost] = useState({});
   const [newForm, setNewForm,] = useState({
-    username: '',
-    location:'',
-    body: '',
-    img: '',
+    username: " ",
+    title: " ",
+    body: " ",
   });
 
   //Set variable for URL (will change to whatever the backend address is for this call)
-  const getPosts = async () => {
-    try {
-      //Get data from BE
-      const response = await fetch('https://shoe-string.herokuapp.com/posts');
-      const allPosts = await response.json();
-      setPost(allPosts);
-    }catch (err){
-      console.log(err);
-    }
-  }
+  // const getPosts = async () => {
+  //   try {
+  //     //Get data from BE
+  //     const response = await fetch('https://shoe-string.herokuapp.com/posts');
+  //     const allPosts = await response.json()
+  //     setPost(allPosts);
+  //   }catch (err){
+  //     console.log(err);
+  //   }
+  // }
 
   const handleChange = (e) => {
     console.log(newForm);
@@ -41,27 +39,26 @@ function CreatePost() {
     const currentState = { ...newForm };
     try {
       const requestOptions = {
-        mode: 'no-cors',
+        mode: "no-cors",
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(currentState),
       }
-      const response = await fetch('https://shoe-string.herokuapp.com/posts', requestOptions)
-      const createdPost = await response.json
+      const response = await fetch("https://shoe-string.herokuapp.com/posts", requestOptions)
+      const createdPost = await response.json()
       console.log(createdPost)
       setPost([...post, createdPost])
       setNewForm({
-        username: '',
-        location:'',
-        body: '',
+        username: " ",
+        title:" ",
+        body: " ",
       })
     }catch (err) {
       console.error(err)
     }
   }
-
 
   return (
     <>
@@ -80,13 +77,13 @@ function CreatePost() {
             </div>
             <input className = 'post-individual-comment' type='text' required id='username' name='username' value={newForm.username} onChange={handleChange} />
           </label>
-          <label className= 'flex-box' htmlFor='location'>
+          <label className= 'flex-box' htmlFor='title'>
             <div className='flex-box'>
-              <p>Location:</p>
+              <p>Title:</p>
             </div>
-            <input className = 'post-individual-comment' type='text' required id='location' name='location' value={newForm.location} onChange={handleChange} />
+            <input className = 'post-individual-comment' type='text' required id='title' name='title' value={newForm.title} onChange={handleChange} />
           </label>
-          <label className='post-comment-add' htmlFor='body'>
+          <label className='post-comment-add' htmlFor='title'>
             <div className='post-icon'>
               <BsFillChatSquareTextFill/>
             </div>
