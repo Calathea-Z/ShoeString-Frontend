@@ -1,4 +1,4 @@
-import '../Styles/postIndividual.css';
+import '../Styles/postCard.css';
 import { motion } from 'framer-motion';
 import {ImHeart} from 'react-icons/im'
 import {FiMapPin} from 'react-icons/fi'
