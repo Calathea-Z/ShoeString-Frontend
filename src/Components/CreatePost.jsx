@@ -2,7 +2,7 @@ import '../Styles/createPost.css'
 import { useState, useEffect } from 'react';
 import {BsFillChatSquareTextFill} from 'react-icons/bs'
 import { motion } from 'framer-motion';
-
+import UploadImage from './UploadImage';
 
 function CreatePost() {
 
@@ -16,12 +16,10 @@ function CreatePost() {
   });
 
   //Set variable for URL (will change to whatever the backend address is for this call)
-  const BE_URL = 'https://shoe-string.herokuapp.com/posts';
-
   const getPosts = async () => {
     try {
       //Get data from BE
-      const response = await fetch(BE_URL);
+      const response = await fetch('https://shoe-string.herokuapp.com/posts');
       const allPosts = await response.json();
       setPost(allPosts);
     }catch (err){
@@ -37,7 +35,7 @@ function CreatePost() {
   }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     const currentState = { ...newForm };
     try {
       const requestOptions = {
@@ -48,9 +46,9 @@ function CreatePost() {
         },
         body: JSON.stringify(currentState),
       }
-      const response = await fetch(BE_URL, requestOptions);
-      const createdPost = await response.json();
-      console.log(createdPost);
+      const response = await fetch('https://shoe-string.herokuapp.com/posts', requestOptions)
+      const createdPost = await response.json
+      console.log(createdPost)
       setPost([...post, createdPost])
       setNewForm({
         username: '',
@@ -64,16 +62,15 @@ function CreatePost() {
 
 
   return (
-
+    <>
     <div className='create-post'>
       <div className='create-card-top'>
         <h1>Create new post</h1>
       </div>
       <div className='photo-box'>
-        Would a photo the user uploads go here?
-        Or perhaps the location they look up GPS wise? Like a Map view would go here?
+        <UploadImage /> 
       </div>
-      <form className='post-comment-add' onSubmit={handleSubmit} >
+      <form className='post-comment-add-' onSubmit={handleSubmit} >
         <div className= 'big-input-form'>
           <label className= 'flex-box' htmlFor='username'>
             <div className='flex-box'>
@@ -96,8 +93,9 @@ function CreatePost() {
         <motion.button type='submit' className='post-button' whileHover={{scale:1.1}} transition={{duration:.8}}
         >Post</motion.button>  
         </div> 
-      </form>     
-    </div>
+      </form>  
+    </div>  
+    </>
   )
 }
 
