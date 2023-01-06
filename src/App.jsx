@@ -7,9 +7,12 @@ import CreatePost from './Components/CreatePost';
 import Profile from './Components/Profile';
 import NotFound from './Pages/NotFound';
 import { Route, Routes } from 'react-router-dom';
+import { useState } from 'react';
 import './Styles/app.css';
 
 function App() {
+
+
   return (
     <div className='app'>
       <NavTop/> 
@@ -23,7 +26,7 @@ function App() {
         <Route path='*' element={<NotFound />} />
       </Routes>
 
-      <NavBottom/>
+      <NavBottom />
     </div>
   );
 }

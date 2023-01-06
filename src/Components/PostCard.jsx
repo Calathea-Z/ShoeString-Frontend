@@ -1,4 +1,4 @@
-import '../Styles/postIndividual.css';
+import '../Styles/postCard.css';
 import { motion } from 'framer-motion';
 import {ImHeart} from 'react-icons/im'
 import {FiMapPin} from 'react-icons/fi'
@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 
 
-function PostCard({id_, username, userphoto, img, location, comment, likes}) {
+function PostCard({username, userphoto, img, location, body, tags, likes}) {
 
   // **Add in state for comments here**
 
@@ -19,7 +19,7 @@ function PostCard({id_, username, userphoto, img, location, comment, likes}) {
 
 {/* ------This link will eventually lead to a specific users profile / history */}
         <Link to='profile/:id'>
-          <motion.img whileHover={{scale:1.3}} transition={{duration:.8}} className='profile-photo' src={userphoto} alt={username}/>
+          <motion.img whileHover={{scale:1.3}} transition={{duration:.8}} className='profile-photo' src={userphoto} alt='Profile Photo'/>
         </Link>
       </div>
 
@@ -38,7 +38,10 @@ function PostCard({id_, username, userphoto, img, location, comment, likes}) {
             <p>Liked by <span>{likes}</span> fellow travelers</p>
         </div>
         <div className='post-individual-comment'>
-        <p><span>{username}</span>{' '}{comment}</p>
+        <p><span>{username}</span>{' '}{body}</p>
+        </div>
+        <div className='post-individual-comment'>
+        <p>{tags}</p>
         </div>
 
         {/* This is where we would set the state for comments if we get to that point */}
