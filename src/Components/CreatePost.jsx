@@ -5,62 +5,71 @@ import { motion } from 'framer-motion';
 import UploadAndDisplayImage from './UploadAndDisplayImage';
 
 
-function CreatePost() {
+const CreatePost = (props) => {
 
   //Set up state for posts
   const [post, setPost] = useState([]);
-  // This needs to be updated with all the things the user could add with post.
   const [newForm, setNewForm,] = useState({
-    username: '',
-    location:'',
-    body: '',
-    img: '',
+    username: " ",
+    title: " ",
+    body: " ",
   });
 
-  //Set variable for URL (will change to whatever the backend address is for this call)
   const getPosts = async () => {
     try {
-      //Get data from BE
       const response = await fetch('https://shoe-string.herokuapp.com/posts');
-      const allPosts = await response.json();
+      const allPosts = await response.json()
       setPost(allPosts);
+      // console.log(allPosts);
     }catch (err){
-      console.log(err);
+      console.error(`Error in Try Block of getPosts function: ${err}`);
     }
   }
 
   const handleChange = (e) => {
     console.log(newForm);
-    const userInput = { ...newForm }
+    const userInput = {...newForm}
     userInput[e.target.name] = e.target.value;
+    console.log(userInput)
     setNewForm(userInput)
   }
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    
+    e.preventDefault();
     const currentState = { ...newForm };
+    console.log(`This is currentState at top of handleSubmit: ${currentState}`)
     try {
+      
       const requestOptions = {
-        mode: 'no-cors',
+        // mode: "no-cors",
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(currentState),
+        headers: { "Content-Type": "application/json"},
+        body: JSON.stringify(currentState)
       }
-      const response = await fetch('https://shoe-string.herokuapp.com/posts', requestOptions)
-      const createdPost = await response.json
-      console.log(createdPost)
+    
+      const response = await fetch("https://shoe-string.herokuapp.com/posts", 
+      requestOptions)
+      const createdPost = await response.json()
+      .then(console.log(response.json()))
+      console.log(" I am created post", createdPost)
       setPost([...post, createdPost])
       setNewForm({
-        username: '',
-        location:'',
-        body: '',
+        username: " ",
+        title:" ",
+        body: " ",
+      }).then(() => {
+        console.log('new post added');
       })
-    }catch (err) {
-      console.error(err)
-    }
+      }catch (err) {
+      console.error(`Error in Try Block of handleSubmit function: ${err}`)
+      }
+
   }
+
+  useEffect(() => {
+    getPosts()
+}, [])
 
 
   return (
@@ -69,24 +78,24 @@ function CreatePost() {
       <div className='create-card-top'>
         <h1>Create new post</h1>
       </div>
-      <div className='photo-box'>
+      {/* <div className='photo-box'>
         <UploadAndDisplayImage /> 
-      </div>
+      </div> */}
       <form className='post-comment-add-' onSubmit={handleSubmit} >
         <div className= 'big-input-form'>
           <label className= 'flex-box' htmlFor='username'>
             <div className='flex-box'>
               <p>Username:</p>
             </div>
-            <input className = 'post-individual-comment' type='text' required id='username' name='username' value={newForm.username} onChange={handleChange} />
+            <input className = 'post-individual-comment' placeholder='...' type='text' required id='username' name='username' value={newForm.username} onChange={handleChange} />
           </label>
-          <label className= 'flex-box' htmlFor='location'>
+          <label className= 'flex-box' htmlFor='title'>
             <div className='flex-box'>
-              <p>Location:</p>
+              <p>Title:</p>
             </div>
-            <input className = 'post-individual-comment' type='text' required id='location' name='location' value={newForm.location} onChange={handleChange} />
+            <input className = 'post-individual-comment' type='text' required id='title' name='title' value={newForm.title} onChange={handleChange} />
           </label>
-          <label className='post-comment-add' htmlFor='body'>
+          <label className='post-comment-add' htmlFor='title'>
             <div className='post-icon'>
               <BsFillChatSquareTextFill/>
             </div>
