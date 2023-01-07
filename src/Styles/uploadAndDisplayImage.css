@@ -2,8 +2,8 @@
 .upload-image-container{
     width: 100%;
     height: 100px;
-    background-color: rgba(232, 232, 232, 0.779);
-    box-shadow: 1px 1px 5px #555 inset;
+    background-color:rgba(232, 232, 232, 0.779);
+    /* box-shadow: 1px 1px 5px #555 inset; */
 }
 
 .photo-box {

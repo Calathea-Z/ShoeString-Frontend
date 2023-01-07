@@ -18,9 +18,9 @@ function PostCard({username, userphoto, img, location, body, tags, likes}) {
         <p>{username}</p>
 
 {/* ------This link will eventually lead to a specific users profile / history */}
-        <Link to='profile/:id'>
+        {/* <Link to='profile/:id'>
           <motion.img whileHover={{scale:1.3}} transition={{duration:.8}} className='profile-photo' src={userphoto} alt='Profile Photo'/>
-        </Link>
+        </Link> */}
       </div>
 
       <div className='post-body'>

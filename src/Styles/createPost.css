@@ -5,6 +5,7 @@
     align-items: center;
     text-align: center;
     margin-top: 62px;
+    gap: 10px;
 }
 
 .create-card-top {
