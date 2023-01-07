@@ -2,7 +2,7 @@ import '../Styles/createPost.css'
 import { useState, useEffect } from 'react';
 import {BsFillChatSquareTextFill} from 'react-icons/bs'
 import { motion } from 'framer-motion';
-import UploadAndDisplayImage from './UploadAndDisplayImage';
+
 
 
 const CreatePost = (props) => {
@@ -12,7 +12,10 @@ const CreatePost = (props) => {
   const [newForm, setNewForm,] = useState({
     username: " ",
     title: " ",
+    location:[],
+    tags: " ",
     body: " ",
+    img: " ",
   });
 
   const getPosts = async () => {
@@ -27,6 +30,7 @@ const CreatePost = (props) => {
   }
 
   const handleChange = (e) => {
+
     console.log(newForm);
     const userInput = {...newForm}
     userInput[e.target.name] = e.target.value;
@@ -42,7 +46,6 @@ const CreatePost = (props) => {
     try {
       
       const requestOptions = {
-        // mode: "no-cors",
         method: "POST",
         headers: { "Content-Type": "application/json"},
         body: JSON.stringify(currentState)
@@ -57,7 +60,10 @@ const CreatePost = (props) => {
       setNewForm({
         username: " ",
         title:" ",
+        location: [],
+        tags: " ",
         body: " ",
+        img: " ",
       }).then(() => {
         console.log('new post added');
       })
@@ -78,9 +84,6 @@ const CreatePost = (props) => {
       <div className='create-card-top'>
         <h1>Create new post</h1>
       </div>
-      {/* <div className='photo-box'>
-        <UploadAndDisplayImage /> 
-      </div> */}
       <form className='post-comment-add-' onSubmit={handleSubmit} >
         <div className= 'big-input-form'>
           <label className= 'flex-box' htmlFor='username'>
@@ -94,6 +97,18 @@ const CreatePost = (props) => {
               <p>Title:</p>
             </div>
             <input className = 'post-individual-comment' type='text' required id='title' name='title' value={newForm.title} onChange={handleChange} />
+          </label>
+          <label className= 'flex-box' htmlFor='location'>
+            <div className='flex-box'>
+              <p>Location:</p>
+            </div>
+            <input className = 'post-individual-comment' type='text'  id='location' name='location' value={newForm.location} onChange={handleChange} />
+          </label>
+          <label className= 'flex-box' htmlFor='tags'>
+            <div className='flex-box'>
+              <p>Tags:</p>
+            </div>
+            <input className = 'post-individual-comment' type='text'  id='tags' name='tags' value={newForm.tags} onChange={handleChange} />
           </label>
           <label className='post-comment-add' htmlFor='title'>
             <div className='post-icon'>
