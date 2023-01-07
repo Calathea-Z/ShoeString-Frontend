@@ -36,6 +36,10 @@ form .big-comment-box {
     width: 80%;
     height: 100px;
     background-color: rgb(228, 210, 210);
+    border: 1px solid black;
+}
 
-
+.post-individual-comment {
+    background-color: rgb(228, 210, 210);
+    border: 1px solid black;
 }

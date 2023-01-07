@@ -7,16 +7,16 @@ import CreatePost from './Components/CreatePost';
 import Profile from './Components/Profile';
 import NotFound from './Pages/NotFound';
 import { Route, Routes } from 'react-router-dom';
-import { useState } from 'react';
+import { RecoilRoot } from 'recoil';
 import './Styles/app.css';
 
 function App() {
 
 
   return (
+    <RecoilRoot>
     <div className='app'>
-      <NavTop/> 
-
+      <NavTop/>
       <Routes>
         <Route path= "/" element={ <Feed /> } />
         <Route path= '/settings' element={ <Settings />} />
@@ -25,9 +25,9 @@ function App() {
         <Route path= '/profile' element={ <Profile />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
-
       <NavBottom />
     </div>
+    </RecoilRoot>
   );
 }
 
