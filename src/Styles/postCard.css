@@ -13,7 +13,7 @@
 }
 
 .post-individual-header {
-    background: var(--color-bg-alt-two);
+    background: rgba(236, 234, 234, 0.283);
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -102,6 +102,13 @@ form .post-individual-comment {
     color: rgb(49, 49, 49);
 }
 
+@media screen and (min-width: 500px) {
+
+    .post-individual-full {
+        padding: 40px;
+        border: solid black 1px;
+    }
+}
 
 
 

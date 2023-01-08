@@ -6,16 +6,24 @@ import Search from './Components/Search';
 import CreatePost from './Components/CreatePost';
 import Profile from './Components/Profile';
 import NotFound from './Pages/NotFound';
+import Modal from './Components/Modal';
 import { Route, Routes } from 'react-router-dom';
-import { RecoilRoot } from 'recoil';
+import { useState } from 'react';
 import './Styles/app.css';
 
 function App() {
 
+  const [openModal, setOpenModal] = useState(false);
 
-  return (
-    <RecoilRoot>
+  const handleModal = () => {
+    setOpenModal(true);
+    console.log("HIT ME")
+  }
+
+
+return (
     <div className='app'>
+      
       <NavTop/>
       <Routes>
         <Route path= "/" element={ <Feed /> } />
@@ -25,9 +33,9 @@ function App() {
         <Route path= '/profile' element={ <Profile />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
+      {openModal && <Modal onClickProp={handleModal} />}
       <NavBottom />
     </div>
-    </RecoilRoot>
   );
 }
 

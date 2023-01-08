@@ -9,3 +9,11 @@
 .no-content {
     height: 500px;
 }
+
+@media screen and (min-width: 500px) {
+    .feed-full{
+        justify-content: center;
+        text-align: center;
+    }
+    
+}

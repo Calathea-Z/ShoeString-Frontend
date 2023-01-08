@@ -3,9 +3,6 @@ import { motion } from 'framer-motion';
 import {ImHeart} from 'react-icons/im'
 import {FiMapPin} from 'react-icons/fi'
 import {BsFillChatSquareTextFill} from 'react-icons/bs'
-import { Link } from 'react-router-dom';
-
-
 
 function PostCard({username, userphoto, img, location, body, tags, likes}) {
 

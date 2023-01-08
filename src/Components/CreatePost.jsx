@@ -15,7 +15,6 @@ const CreatePost = (props) => {
     location:[],
     tags: " ",
     body: " ",
-    img: " ",
   });
 
   const getPosts = async () => {
@@ -63,7 +62,6 @@ const CreatePost = (props) => {
         location: [],
         tags: " ",
         body: " ",
-        img: " ",
       }).then(() => {
         console.log('new post added');
       })
@@ -116,9 +114,6 @@ const CreatePost = (props) => {
             </div>
             <input className = 'big-comment-box' type='text' placeholder='Share your thoughts..' required id='body' name='body' value={newForm.body} onChange={handleChange}  />
           </label>
-          <div className='photo-box'>
-            <input className='post-comment-add' type='file' name='file' onChange={handleChange}/>
-          </div>
         <motion.button type='submit' className='post-button' whileHover={{scale:1.1}} transition={{duration:.8}}
         >Post</motion.button>  
         </div> 
