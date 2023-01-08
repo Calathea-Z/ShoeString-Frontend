@@ -24,22 +24,25 @@ function PostCard({username, userphoto, img, location, body, tags, likes}) {
         <img className='post-photo' src={img} alt='Photo of location'/>
        </div> 
         <div className='post-individual-middle'>
+          <div className='flex-box'>
             <div>
               <a href='#locationtag' className='location-button'><FiMapPin/>{' '}{location}</a>
             </div>
             <div>
+            <p>Liked by <span>{likes}</span> fellow travelers</p>
+            </div>
+          </div>
+            <div>
               <motion.button whileHover={{scale:1.1}} transition={{duration:.8}} className='post-button'><ImHeart/></motion.button>
             </div>
-        </div>
-        <div className='post-individual-likes'>
-            <p>Liked by <span>{likes}</span> fellow travelers</p>
         </div>
         <div className='post-individual-comment'>
         <p><span>{username}</span>{' '}{body}</p>
         </div>
-        <div className='post-individual-comment'>
+        {/* I would like this to be shown if the state makes it neccesary */}
+        {/* <div className='post-individual-comment'>
         <p>{tags}</p>
-        </div>
+        </div> */}
 
         {/* This is where we would set the state for comments if we get to that point */}
         <form className='post-comment-add' >

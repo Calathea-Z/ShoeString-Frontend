@@ -15,15 +15,15 @@ html {
 }
 
 :root{
-    --color-bg: rgb(231, 187, 10);
-    --color-bg-alt: rgb(126, 111, 115);
-    --color-bg-alt-two: rgb(231, 187, 50);
-    --color-main: rgb(52, 40, 40);
-    --color-outline: rgb(227, 10, 231, 0.172);
+    --color-bg:  rgb(84, 94, 66);
+    --color-bg-alt: rgb(161, 183, 212);
+    --color-bg-alt-two: rgb(127, 137, 100)
+    --color-main: rgb(161, 107, 92)
+    --color-outline: rgb((224, 193, 149) 0.172);
 }
 
 body {
   font-family: 'PT Sans Narrow', sans-serif;
-  background: var(--color-bg);
+  background: rgb(127, 137, 100);
   color: var(--color-main);
 }

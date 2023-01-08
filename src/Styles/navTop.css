@@ -11,14 +11,14 @@ input:hover {
 
 nav {
     display: flex;
-    background: var(--color-bg-alt-two);
+    background: rgb(127, 137, 100);
     padding-top: 1.6rem; padding-bottom: .8rem;
-    z-index: 2;
+    z-index: 10;
 }
 
 nav a {
     background: transparent;
-    color: var(--color-bg-alt);
+    color: var(--color-bg-alt); 
     font-size: 2.5rem;  
     padding: 2rem;
 }

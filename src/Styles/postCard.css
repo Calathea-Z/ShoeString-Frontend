@@ -46,7 +46,7 @@
 }
 
 .post-individual-middle{
-    background: var(--color-bg);
+    background: rgba(236, 234, 234, 0.283);
     display: flex;
     justify-content: space-between;
     font-size: 20px;
@@ -56,7 +56,7 @@
 
 .post-button {
     color: var(--color-bg-alt);
-    background-color: var(--color-bg);
+    background-color:rgba(236, 234, 234, 0.283);
     padding-right: 10px; padding-left: 5px;
     font-size: 25px;
 }
@@ -102,11 +102,34 @@ form .post-individual-comment {
     color: rgb(49, 49, 49);
 }
 
+.flex-box {
+    display: flex;
+}
+
 @media screen and (min-width: 500px) {
 
     .post-individual-full {
         padding: 40px;
-        border: solid black 1px;
+        margin: 10px;
+    }
+
+    .post-individual-header {
+        background: rgba(236, 234, 234, 0.283);
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 20px;
+        border-radius: 2px;
+        box-shadow: 0px 0px 3px 0px var(--color-outline);
+        font-weight: bolder;
+        padding: 10px;
+        padding-right: 20px;
+        margin-bottom: 10px;
+        border: 1px solid black;
+    }
+    .post-individual-comment {
+        width: 100%;
+        text-align:left;
     }
 }
 
