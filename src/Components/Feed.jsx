@@ -2,11 +2,8 @@ import '../Styles/feed.css';
 import './PostCard';
 import PostCard from './PostCard';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 
 function Feed() {
-
-//---Everything here is for getting real posts when ready
 
     const [post, setPost] = useState({});
 
@@ -20,7 +17,6 @@ function Feed() {
         console.log(err);
       }
     }
-
     useEffect(() => {
         getPosts()
     }, []);
@@ -28,18 +24,16 @@ function Feed() {
 //-----------------------------------------------------------
   return ( 
   <>
-<h1 className='feed-full'>
+    <div className='feed-full'>
       {post.foundPosts?.map((post) => {
         return(
-           <>
-          <PostCard username={post.username} body={post.body} likes={post.likes} img={post.img} location={post.location}/>
+          <>
+            <PostCard username={post.username} body={post.body} likes={post.likes} img={post.img} location={post.location}/>
           </>
         )
       })}
-    </h1> 
-
- 
-    </>
+    </div> 
+  </>
   )
 }
 
