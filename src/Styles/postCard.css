@@ -1,28 +1,32 @@
 
 .post-individual-full {
+    margin-top: 40px;
     border-radius: 2px;
-    /* box-shadow: 0px 0px 2px 0px black; */
+    box-shadow: 0px 0px 2px 0px black;
     overflow: hidden;
     display: flex;
     justify-content: center;
     flex-direction: column;
-}
-
-.post-individual-full:hover {
-    border: transparent black 1px;
+    padding-bottom: 20px;
+    max-width: 700px;
+    min-width: 700px;
+    background-color: lightblue;
 }
 
 .post-individual-header {
-    background: var(--color-bg-alt-two);
+    background: lightblue;
+    width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: center;
     gap: 20px;
     border-radius: 2px;
-    box-shadow: 0px 0px 3px 0px var(--color-outline);
     font-weight: bolder;
-    padding: 10px;
     padding-right: 20px;
+    padding-left: 5px;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid black;
 }
 
 .profile-photo {
@@ -46,7 +50,7 @@
 }
 
 .post-individual-middle{
-    background: var(--color-bg);
+    background: lightblue;
     display: flex;
     justify-content: space-between;
     font-size: 20px;
@@ -55,8 +59,8 @@
 }
 
 .post-button {
-    color: var(--color-bg-alt);
-    background-color: var(--color-bg);
+    color: black;
+    background-color: lightblue;
     padding-right: 10px; padding-left: 5px;
     font-size: 25px;
 }
@@ -66,16 +70,18 @@
 }
 
 .post-icon {
-    color: var(--color-bg-alt);
-    background-color: var(--color-bg);
+    color: black;
+    background-color: lightblue;
     padding-right: 10px; padding-left: 5px;
     font-size: 25px;
 }
 
 .post-individual-comment {
-    background: var(--color-bg);
+    background: lightblue;
+    
     padding: 10px;
     font-size:18px;
+    border-top: 1px solid black;
 }
 
 .post-individual-comment span {
@@ -83,7 +89,7 @@
 }
 
 .post-individual-likes{
-    background: var(--color-bg);
+    background: lightblue;
     padding-left: 10px;
 }
 
@@ -94,16 +100,20 @@
 
 .post-comment-add {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 4px;
+    margin: 2px;
+    gap: 6px;
 }
 
-form .post-individual-comment {
-    color: rgb(49, 49, 49);
+input, textarea {
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background: transparent;
+    border: 2px solid black;
 }
-
-
-
 
 
   

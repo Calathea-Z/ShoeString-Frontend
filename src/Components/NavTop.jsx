@@ -9,17 +9,21 @@ import { Link } from 'react-router-dom';
 const NavTop = () => {
   return (
     <nav className='full-top'>
-      <motion.div
-      initial={{opacity: 0}}
-      whileInView={{opacity:1}}
-      whileHover={{scale:1.4}}
-      transition={{duration:1.8}}
-      className='nav-comp'>
-        <Link to='/'><span><GiSteeltoeBoots/></span></Link>
-      </motion.div>
-      <motion.div whileHover={{scale:1.1}} transition={{duration:.8}}  className='nav-comp'>
-        <Link to='/settings'><VscSettingsGear/></Link>
-      </motion.div>
+      <div className='top-header'>
+        <div className='top-header-wrapper'>
+          <div className='logo'>
+              <Link to='/'><span className='boots'><GiSteeltoeBoots/></span></Link>
+              <h3>ShoeString</h3>
+          </div>
+          <div>
+            <button className='text-button-logout'>Log Out</button>
+          </div>
+          <div className='top-header-buttons'>
+            <button className='primary-button'>Log in</button>
+            <button className='text-button'>Sign Up</button>
+          </div>
+        </div>
+      </div>
     </nav>
   )
 }
