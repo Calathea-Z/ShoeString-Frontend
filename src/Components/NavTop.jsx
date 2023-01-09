@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import '../Styles/navTop.css';
-import {VscSettingsGear} from 'react-icons/vsc';
+// import {VscSettingsGear} from 'react-icons/vsc';
 import {GiSteeltoeBoots} from 'react-icons/gi';
 import { Link } from 'react-router-dom';
 

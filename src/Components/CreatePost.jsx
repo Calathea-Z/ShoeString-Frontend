@@ -1,7 +1,7 @@
 import '../Styles/createPost.css'
 import { useState, useEffect } from 'react';
 import {BsFillChatSquareTextFill} from 'react-icons/bs'
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 
 
 
@@ -92,7 +92,7 @@ const CreatePost = ({userName, body, imageURL, _id, user, }) => {
         <h1>Create new post</h1>
         <h3>{userName}</h3>
       </div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <h1>Check if work React File Upload</h1>
         <div className='post-comment-add'>
           <div className='post-icon'><BsFillChatSquareTextFill/></div>

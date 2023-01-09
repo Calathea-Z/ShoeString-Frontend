@@ -18,7 +18,6 @@ import { useState } from "react"
 function App() {
     // grab UserContext, make it available across whole app
     const { Provider: UserInfo } = UserContext
-    console.log(UserInfo)
     const [isAuthenticated, setIsAuthenticated] = useState(false)
     const [currentUser, setCurrentUser] = useState(null)
 
@@ -29,30 +28,32 @@ function App() {
     // console.log("HIT ME")
     // }
 
-
-return (
-    <div className='app'>
-      <UserInfo
-        value={{
-        isAuthenticated,
-        setAuth: setIsAuthenticated,
-        user: currentUser,
-        setUser: setCurrentUser,
-       }}>
-      <NavTop />
-      <Routes>
-        <Route path= "/" element={ <Feed /> } />
-        <Route path= '/settings' element={ <Settings />} />
-        <Route path= '/search' element={ <Search />} />
-        <Route path= '/createPost' element={ <CreatePost/>} />
-        <Route path= '/profile' element={ <Profile />} />
-        <Route path='*' element={<NotFound />} />
-      </Routes>
-      {/* {openModal && <Modal onClickProp={handleModal} />} */}
-      <NavBottom />
-      </UserInfo>
-    </div>
-  );
+    return (
+        <div className="app">
+            <UserInfo
+                value={{
+                    isAuthenticated,
+                    setAuth: setIsAuthenticated,
+                    user: currentUser,
+                    setUser: setCurrentUser,
+                }}>
+                <NavTop />
+                <Routes>
+                    <Route path="/" element={<Feed />} />
+                    <Route path="/home" element={<Home />} />
+                    <Route path="/auth" element={<Auth />} />
+                    <Route path="/map" element={<Map latitude={35.59457} longitude={-82.56901} />} />
+                    <Route path="/settings" element={<Settings />} />
+                    <Route path="/search" element={<Search />} />
+                    <Route path="/createPost" element={<CreatePost />} />
+                    <Route path="/profile" element={<Profile />} />
+                    <Route path="*" element={<NotFound />} />
+                </Routes>
+                {/* {openModal && <Modal onClickProp={handleModal} />} */}
+                <NavBottom />
+            </UserInfo>
+        </div>
+    )
 }
 
 export default App
