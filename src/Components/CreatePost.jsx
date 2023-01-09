@@ -5,16 +5,18 @@ import { motion } from 'framer-motion';
 
 
 
-const CreatePost = (props) => {
+const CreatePost = ({userName, body, imageURL, _id, user, }) => {
 
   //Set up state for posts
-  const [post, setPost] = useState([]);
+  const [post, setPost] = useState({});
   const [newForm, setNewForm,] = useState({
     username: " ",
-    location:(0),
-    tags: " ",
+    title: " ",
+    location:[],
+    tags: "",
     body: " ",
   });
+  const [newImage, setNewImage] = useState(null);
 
   const getPosts = async () => {
     try {
@@ -28,15 +30,15 @@ const CreatePost = (props) => {
   }
 
   const handleChange = (e) => {
-
     console.log(newForm);
     const userInput = {...newForm}
     userInput[e.target.name] = e.target.value;
     console.log(userInput)
     setNewForm(userInput)
+    setNewImage(e.target.files[0])
   }
+  const handleSubmit = async (e) => {
 
-const handleSubmit = async (e) => {
     e.preventDefault();
     const currentState = { ...newForm };
     console.log(`This is currentState at top of handleSubmit: ${currentState}`)
@@ -48,10 +50,11 @@ const handleSubmit = async (e) => {
       }
       const response = await fetch("https://shoe-string.herokuapp.com/posts", 
       requestOptions)
+
       const createdPost = await response.json()
       .then(console.log(response.json()))
       console.log(" I am created post", createdPost)
-      setPost([post, createdPost])
+      setPost([...post, createdPost])
       setNewForm({
         username: " ",
         location: (0),
@@ -63,6 +66,20 @@ const handleSubmit = async (e) => {
       }
   }
 
+  const handleImageUpload = async (e) => {
+    e.preventDefault()
+    const image = {newImage}
+    console.log(image);
+    try{
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "multipart/form-data"},
+      }
+    }catch(err){
+        console.error(err);
+    }
+  }
+
   useEffect(() => {
     getPosts()
 }, [])
@@ -70,41 +87,22 @@ const handleSubmit = async (e) => {
 
   return (
     <>
-    <div className='create-post'>
-      <div className='create-card-top'>
+    <div className='post'>
+      <div className='post-header'>
         <h1>Create new post</h1>
+        <h3>{userName}</h3>
       </div>
-      <form className='post-comment-add-' onSubmit={handleSubmit} >
-        <div className= 'big-input-form'>
-          <label className= 'flex-box' htmlFor='username'>
-            <div className='flex-box'>
-              <p>Username:</p>
-            </div>
-            <input className = 'post-individual-comment' placeholder='...' type='text' required id='username' name='username' value={newForm.username} onChange={handleChange} />
-          </label>
-          <label className= 'flex-box' htmlFor='location'>
-            <div className='flex-box'>
-              <p>Location:</p>
-            </div>
-            <input className = 'post-individual-comment' type='text'  id='location' name='location' value={newForm.location} onChange={handleChange} />
-          </label>
-          <label className= 'flex-box' htmlFor='tags'>
-            <div className='flex-box'>
-              <p>Tags:</p>
-            </div>
-            <input className = 'post-individual-comment' type='text'  id='tags' name='tags' value={newForm.tags} onChange={handleChange} />
-          </label>
-          <label className='post-comment-add' htmlFor='title'>
-            <div className='post-icon'>
-              <BsFillChatSquareTextFill/>
-            </div>
-            <input className = 'big-comment-box' type='text' placeholder='Share your thoughts..' required id='body' name='body' value={newForm.body} onChange={handleChange}  />
-          </label>
-        <motion.button type='submit' className='post-button' whileHover={{scale:1.1}} transition={{duration:.8}}
-        >Post</motion.button>  
-        </div> 
-      </form>  
-    </div>  
+      <form>
+        <h1>Check if work React File Upload</h1>
+        <div className='post-comment-add'>
+          <div className='post-icon'><BsFillChatSquareTextFill/></div>
+          <textarea type='text' placeholder='Add a comment...' className = 'post-individual-comment' />
+        </div>
+        <input type='file' />
+        <button type='submit'>Go!</button>
+      </form>
+    </div>
+
     </>
   )
 }

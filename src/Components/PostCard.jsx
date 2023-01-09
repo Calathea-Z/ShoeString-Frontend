@@ -92,8 +92,8 @@ function PostCard({username, userphoto, _id, img, location, body, tags, likes}) 
             <button className='post-button'><ImHeart/></button>
           </div>
         </div>
-        <div className='post-individual-comment'>
-        <p><span>{username}</span>{' '}{body}</p>
+        <div>
+          <p>Liked by <strong>{likes}</strong> fellow travelers</p>
         </div>
         <form className='post-comment-add' onSubmit={editPost} >
           <div className='post-icon'><BsFillChatSquareTextFill/></div>

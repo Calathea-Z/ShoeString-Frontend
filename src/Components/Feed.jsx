@@ -7,6 +7,8 @@ function Feed() {
 
     const [post, setPost] = useState({});
 
+  
+
     const getPosts = async () => {
       try {
         //Get data from BE

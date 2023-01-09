@@ -22,33 +22,37 @@ function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false)
     const [currentUser, setCurrentUser] = useState(null)
 
-    return (
-        <RecoilRoot>
-            <div className="app">
-                <UserInfo
-                    value={{
-                        isAuthenticated,
-                        setAuth: setIsAuthenticated,
-                        user: currentUser,
-                        setUser: setCurrentUser,
-                    }}>
-                    <NavTop />
-                    <Routes>
-                        <Route path="/" element={<Feed />} />
-                        <Route path="/home" element={<Home />} />
-                        <Route path="/auth" element={<Auth />} />
-                        <Route path="/map" element={<Map latitude={35.59457} longitude={-82.56901} />} />
-                        <Route path="/settings" element={<Settings />} />
-                        <Route path="/search" element={<Search />} />
-                        <Route path="/createPost" element={<CreatePost />} />
-                        <Route path="/profile" element={<Profile />} />
-                        <Route path="*" element={<NotFound />} />
-                    </Routes>
-                    <NavBottom />
-                </UserInfo>
-            </div>
-        </RecoilRoot>
-    )
+    const [openModal, setOpenModal] = useState(false);
+
+    const handleModal = () => {
+    setOpenModal(true);
+    console.log("HIT ME")
+    }
+
+
+return (
+    <div className='app'>
+      <UserInfo
+        value={{
+        isAuthenticated,
+        setAuth: setIsAuthenticated,
+        user: currentUser,
+        setUser: setCurrentUser,
+       }}>
+      <NavTop />
+      <Routes>
+        <Route path= "/" element={ <Feed /> } />
+        <Route path= '/settings' element={ <Settings />} />
+        <Route path= '/search' element={ <Search />} />
+        <Route path= '/createPost' element={ <CreatePost/>} />
+        <Route path= '/profile' element={ <Profile />} />
+        <Route path='*' element={<NotFound />} />
+      </Routes>
+      {/* {openModal && <Modal onClickProp={handleModal} />} */}
+      <NavBottom />
+      </UserInfo>
+    </div>
+  );
 }
 
 export default App
