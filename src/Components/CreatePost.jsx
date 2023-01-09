@@ -8,14 +8,15 @@ import { motion } from 'framer-motion';
 const CreatePost = ({userName, body, imageURL, _id, user, }) => {
 
   //Set up state for posts
-  const [post, setPost] = useState([]);
+  const [post, setPost] = useState({});
   const [newForm, setNewForm,] = useState({
     username: " ",
     title: " ",
     location:[],
-    tags: " ",
+    tags: "",
     body: " ",
   });
+  const [newImage, setNewImage] = useState(null);
 
   const getPosts = async () => {
     try {
@@ -29,16 +30,15 @@ const CreatePost = ({userName, body, imageURL, _id, user, }) => {
   }
 
   const handleChange = (e) => {
-
     console.log(newForm);
     const userInput = {...newForm}
     userInput[e.target.name] = e.target.value;
     console.log(userInput)
     setNewForm(userInput)
+    setNewImage(e.target.files[0])
   }
 
   const handleSubmit = async (e) => {
-    
     e.preventDefault();
     const currentState = { ...newForm };
     console.log(`This is currentState at top of handleSubmit: ${currentState}`)
@@ -52,10 +52,12 @@ const CreatePost = ({userName, body, imageURL, _id, user, }) => {
     
       const response = await fetch("https://shoe-string.herokuapp.com/posts", 
       requestOptions)
+
       const createdPost = await response.json()
       .then(console.log(response.json()))
       console.log(" I am created post", createdPost)
       setPost([...post, createdPost])
+
       setNewForm({
         username: " ",
         title:" ",
@@ -71,6 +73,18 @@ const CreatePost = ({userName, body, imageURL, _id, user, }) => {
 
   }
 
+  const handleImageUpload = async (e) => {
+    e.preventDefault
+    const image = {newImage}
+    console.log(image);
+    try{
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "multipart/form-data},
+      }
+    }
+  }
+
   useEffect(() => {
     getPosts()
 }, [])
@@ -83,10 +97,16 @@ const CreatePost = ({userName, body, imageURL, _id, user, }) => {
         <h1>Create new post</h1>
         <h3>{userName}</h3>
       </div>
-      <img className='post-image' src={imageURL} alt=''/>
-      <h4 className='post-text'>
-        <strong>{userName}</strong> {body}
-      </h4>
+      <form>
+        <h1>Check if work React File Upload</h1>
+        <div className='post-comment-add'>
+          <div className='post-icon'><BsFillChatSquareTextFill/></div>
+          <textarea type='text' placeholder='Add a comment...' className = 'post-individual-comment' />
+        </div>
+        <input type='file' />
+        <button type='submit'>Go!</button>
+      </form>
+
     </div>
     </>
   )
