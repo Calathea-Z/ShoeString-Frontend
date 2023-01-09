@@ -1,4 +1,4 @@
-/* .app {
-    display: flex;
-    flex-direction: column;
-} */
+.app {
+    min-height: 100vh;
+    background-color: #fafafa;
+}
