@@ -29,7 +29,7 @@ button {
     padding: 0 20px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .top-header-buttons {
@@ -38,7 +38,7 @@ button {
 }
 
 .primary-button {
-    background-color: #0095f6;
+    background-color: rgb(101, 195, 195);
     border-radius: 4px;
     color: #fff;
     padding: 5px 9px;
@@ -47,24 +47,31 @@ button {
 }
 
 .text-button {
-    color: #0095f6;
+    color: rgb(101, 195, 195);
     font-weight: 600;
     line-height: 28px;
     background-color: transparent;
 }
-/* .nav-comp {
-    display: relative;
-    margin:-15px;
-    cursor: pointer;
- 
+
+.logo {
+    font-size:xx-large;
+    font-weight:900;
+    display: flex;
+    gap: 20px;
+    flex-direction:row-reverse;
+    justify-self: flex-start;
+    color: rgb(101, 195, 195);
 }
 
-.nav-comp span {
-    color:rgb(203, 248, 250);
-} */
+.logo span:hover {
+    color: rgb(101, 195, 195);
+}
 
-
-
+.text-button-logout {
+    color: black;
+    background-color: white;
+    font-weight: bolder;   
+}
 
 
 

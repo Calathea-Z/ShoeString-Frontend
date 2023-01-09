@@ -28,11 +28,13 @@ function PostCard({username, userphoto, img, location, body, tags, likes}) {
       <div className='post-individual-comment'>
         <p><span>{username}</span>{' '}{body}</p>
       </div>
-      <form className='post-individual-comment'>
-        <input className='text-box' type='text'>
-
-        </input>
-      </form>
+      <form className='post-comment-add' >
+        <div className='post-comment-add'>
+          <div className='post-icon'><BsFillChatSquareTextFill/></div>
+          <textarea type='text' placeholder='Add a comment...' className = 'post-individual-comment' />
+        </div>
+          <motion.button whileHover={{scale:1.1}} transition={{duration:.8}} className='post-button'>Post</motion.button>   
+        </form>
     </div>
   )
 }

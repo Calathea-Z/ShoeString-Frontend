@@ -11,11 +11,12 @@ const NavTop = () => {
     <nav className='full-top'>
       <div className='top-header'>
         <div className='top-header-wrapper'>
-          <div>
-              <Link to='/'><span><GiSteeltoeBoots/></span></Link>
+          <div className='logo'>
+              <Link to='/'><span className='boots'><GiSteeltoeBoots/></span></Link>
+              <h3>ShoeString</h3>
           </div>
           <div>
-            <button className='text-button'>Log Out</button>
+            <button className='text-button-logout'>Log Out</button>
           </div>
           <div className='top-header-buttons'>
             <button className='primary-button'>Log in</button>
