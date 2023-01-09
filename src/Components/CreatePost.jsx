@@ -74,14 +74,16 @@ const CreatePost = ({userName, body, imageURL, _id, user, }) => {
   }
 
   const handleImageUpload = async (e) => {
-    e.preventDefault
+    e.preventDefault()
     const image = {newImage}
     console.log(image);
     try{
       const requestOptions = {
         method: "POST",
-        headers: { "Content-Type": "multipart/form-data},
+        headers: { "Content-Type": "multipart/form-data"},
       }
+    }catch(err){
+        console.error(err);
     }
   }
 
@@ -106,7 +108,6 @@ const CreatePost = ({userName, body, imageURL, _id, user, }) => {
         <input type='file' />
         <button type='submit'>Go!</button>
       </form>
-
     </div>
     </>
   )
