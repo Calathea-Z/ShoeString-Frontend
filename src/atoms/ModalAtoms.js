@@ -1,4 +1,4 @@
-import { FaLessThanEqual } from 'react-icons/fa';
+// import { FaLessThanEqual } from 'react-icons/fa';
 import { atom } from 'recoil';
 
 export const modalState = atom({
