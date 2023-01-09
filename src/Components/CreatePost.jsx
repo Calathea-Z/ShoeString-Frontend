@@ -11,8 +11,7 @@ const CreatePost = (props) => {
   const [post, setPost] = useState([]);
   const [newForm, setNewForm,] = useState({
     username: " ",
-    title: " ",
-    location:[],
+    location:(0),
     tags: " ",
     body: " ",
   });
@@ -37,38 +36,31 @@ const CreatePost = (props) => {
     setNewForm(userInput)
   }
 
-  const handleSubmit = async (e) => {
-    
+const handleSubmit = async (e) => {
     e.preventDefault();
     const currentState = { ...newForm };
     console.log(`This is currentState at top of handleSubmit: ${currentState}`)
     try {
-      
       const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json"},
         body: JSON.stringify(currentState)
       }
-    
       const response = await fetch("https://shoe-string.herokuapp.com/posts", 
       requestOptions)
       const createdPost = await response.json()
       .then(console.log(response.json()))
       console.log(" I am created post", createdPost)
-      setPost([...post, createdPost])
+      setPost([post, createdPost])
       setNewForm({
         username: " ",
-        title:" ",
-        location: [],
+        location: (0),
         tags: " ",
         body: " ",
-      }).then(() => {
-        console.log('new post added');
       })
       }catch (err) {
       console.error(`Error in Try Block of handleSubmit function: ${err}`)
       }
-
   }
 
   useEffect(() => {
@@ -89,12 +81,6 @@ const CreatePost = (props) => {
               <p>Username:</p>
             </div>
             <input className = 'post-individual-comment' placeholder='...' type='text' required id='username' name='username' value={newForm.username} onChange={handleChange} />
-          </label>
-          <label className= 'flex-box' htmlFor='title'>
-            <div className='flex-box'>
-              <p>Title:</p>
-            </div>
-            <input className = 'post-individual-comment' type='text' required id='title' name='title' value={newForm.title} onChange={handleChange} />
           </label>
           <label className= 'flex-box' htmlFor='location'>
             <div className='flex-box'>
