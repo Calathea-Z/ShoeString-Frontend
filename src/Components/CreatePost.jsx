@@ -66,20 +66,6 @@ const CreatePost = ({userName, body, imageURL, _id, user, }) => {
       }
   }
 
-  const handleImageUpload = async (e) => {
-    e.preventDefault()
-    const image = {newImage}
-    console.log(image);
-    try{
-      const requestOptions = {
-        method: "POST",
-        headers: { "Content-Type": "multipart/form-data"},
-      }
-    }catch(err){
-        console.error(err);
-    }
-  }
-
   useEffect(() => {
     getPosts()
 }, [])
@@ -93,14 +79,12 @@ const CreatePost = ({userName, body, imageURL, _id, user, }) => {
         <h3>{userName}</h3>
       </div>
       <form>
-        <h1>Check if work React File Upload</h1>
         <div className='post-comment-add'>
           <div className='post-icon'><BsFillChatSquareTextFill/></div>
           <textarea type='text' placeholder='Add a comment...' className = 'post-individual-comment' />
         </div>
-        <input type='file' />
-        <button type='submit'>Go!</button>
-      </form>
+        <button onClick={handleSubmit}>Submit</button>
+        </form>
     </div>
 
     </>
