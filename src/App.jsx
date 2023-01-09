@@ -7,13 +7,13 @@ import CreatePost from "./Components/CreatePost"
 import Profile from "./Components/Profile"
 import NotFound from "./Pages/NotFound"
 import { Route, Routes } from "react-router-dom"
-import { RecoilRoot } from "recoil"
+// import { RecoilRoot } from "recoil"
 import "./Styles/app.css"
 import Auth from "./Pages/Auth"
 import Home from "./Pages/Home"
 import Map from "./Components/Map"
 import { UserContext } from "./data"
-import { useState, useEffect, useContext } from "react"
+import { useState } from "react"
 
 function App() {
     // grab UserContext, make it available across whole app
@@ -22,12 +22,12 @@ function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false)
     const [currentUser, setCurrentUser] = useState(null)
 
-    const [openModal, setOpenModal] = useState(false);
+    // const [openModal, setOpenModal] = useState(false);
 
-    const handleModal = () => {
-    setOpenModal(true);
-    console.log("HIT ME")
-    }
+    // const handleModal = () => {
+    // setOpenModal(true);
+    // console.log("HIT ME")
+    // }
 
 
 return (
