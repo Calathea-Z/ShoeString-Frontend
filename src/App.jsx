@@ -11,6 +11,7 @@ import { RecoilRoot } from "recoil"
 import "./Styles/app.css"
 import Auth from "./Pages/Auth"
 import Home from "./Pages/Home"
+import Map from "./Components/Map"
 import { UserContext } from "./data"
 import { useState, useEffect, useContext } from "react"
 
@@ -36,6 +37,7 @@ function App() {
                         <Route path="/" element={<Feed />} />
                         <Route path="/home" element={<Home />} />
                         <Route path="/auth" element={<Auth />} />
+                        <Route path="/map" element={<Map latitude={35.59457} longitude={-82.56901} />} />
                         <Route path="/settings" element={<Settings />} />
                         <Route path="/search" element={<Search />} />
                         <Route path="/createPost" element={<CreatePost />} />
