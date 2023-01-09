@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 
 
-const CreatePost = (props) => {
+const CreatePost = ({userName, body, imageURL, _id, user, }) => {
 
   //Set up state for posts
   const [post, setPost] = useState([]);
@@ -78,47 +78,16 @@ const CreatePost = (props) => {
 
   return (
     <>
-    <div className='create-post'>
-      <div className='create-card-top'>
+    <div className='post'>
+      <div className='post-header'>
         <h1>Create new post</h1>
+        <h3>{userName}</h3>
       </div>
-      <form className='post-comment-add-' onSubmit={handleSubmit} >
-        <div className= 'big-input-form'>
-          <label className= 'flex-box' htmlFor='username'>
-            <div className='flex-box'>
-              <p>Username:</p>
-            </div>
-            <input className = 'post-individual-comment' placeholder='...' type='text' required id='username' name='username' value={newForm.username} onChange={handleChange} />
-          </label>
-          <label className= 'flex-box' htmlFor='title'>
-            <div className='flex-box'>
-              <p>Title:</p>
-            </div>
-            <input className = 'post-individual-comment' type='text' required id='title' name='title' value={newForm.title} onChange={handleChange} />
-          </label>
-          <label className= 'flex-box' htmlFor='location'>
-            <div className='flex-box'>
-              <p>Location:</p>
-            </div>
-            <input className = 'post-individual-comment' type='text'  id='location' name='location' value={newForm.location} onChange={handleChange} />
-          </label>
-          <label className= 'flex-box' htmlFor='tags'>
-            <div className='flex-box'>
-              <p>Tags:</p>
-            </div>
-            <input className = 'post-individual-comment' type='text'  id='tags' name='tags' value={newForm.tags} onChange={handleChange} />
-          </label>
-          <label className='post-comment-add' htmlFor='title'>
-            <div className='post-icon'>
-              <BsFillChatSquareTextFill/>
-            </div>
-            <input className = 'big-comment-box' type='text' placeholder='Share your thoughts..' required id='body' name='body' value={newForm.body} onChange={handleChange}  />
-          </label>
-        <motion.button type='submit' className='post-button' whileHover={{scale:1.1}} transition={{duration:.8}}
-        >Post</motion.button>  
-        </div> 
-      </form>  
-    </div>  
+      <img className='post-image' src={imageURL} alt=''/>
+      <h4 className='post-text'>
+        <strong>{userName}</strong> {body}
+      </h4>
+    </div>
     </>
   )
 }
