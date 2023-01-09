@@ -1,0 +1,6 @@
+.map {
+margin-top:20vw;
+display:flex;
+justify-content: center;
+border:6px solid rgb(125, 125, 125);
+}

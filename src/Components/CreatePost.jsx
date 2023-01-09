@@ -37,19 +37,17 @@ const CreatePost = ({userName, body, imageURL, _id, user, }) => {
     setNewForm(userInput)
     setNewImage(e.target.files[0])
   }
-
   const handleSubmit = async (e) => {
+
     e.preventDefault();
     const currentState = { ...newForm };
     console.log(`This is currentState at top of handleSubmit: ${currentState}`)
     try {
-      
       const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json"},
         body: JSON.stringify(currentState)
       }
-    
       const response = await fetch("https://shoe-string.herokuapp.com/posts", 
       requestOptions)
 
@@ -57,20 +55,15 @@ const CreatePost = ({userName, body, imageURL, _id, user, }) => {
       .then(console.log(response.json()))
       console.log(" I am created post", createdPost)
       setPost([...post, createdPost])
-
       setNewForm({
         username: " ",
-        title:" ",
-        location: [],
+        location: (0),
         tags: " ",
         body: " ",
-      }).then(() => {
-        console.log('new post added');
       })
       }catch (err) {
       console.error(`Error in Try Block of handleSubmit function: ${err}`)
       }
-
   }
 
   const handleImageUpload = async (e) => {
@@ -109,6 +102,7 @@ const CreatePost = ({userName, body, imageURL, _id, user, }) => {
         <button type='submit'>Go!</button>
       </form>
     </div>
+
     </>
   )
 }

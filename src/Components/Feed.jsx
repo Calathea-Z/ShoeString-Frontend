@@ -29,8 +29,8 @@ function Feed() {
     <div className='feed-full'>
       {post.allPosts?.map((post) => {
         return(
-          <div key={post.id}>
-            <PostCard username={post.username} body={post.body} likes={post.likes} img={post.img} location={post.location}/>
+          <div>
+            <PostCard key={post.id} username={post.username} _id={post._id} body={post.body} likes={post.likes} img={post.img} location={post.location}/>
           </div>
         )
       })}
