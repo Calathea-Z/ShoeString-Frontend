@@ -11,11 +11,13 @@ const NavTop = () => {
     <nav className='full-top'>
       <div className='top-header'>
         <div className='top-header-wrapper'>
-          <div className='logo'>
-              <Link to='/'><span className='boots'><GiSteeltoeBoots/></span></Link>
-              <h3 id='app-name'>ShoeString</h3>
-          </div>
-          <motion.div whileHover={{scale:1.1}} transition={{duration:.8}} className='bottom-footer-buttons'>
+          <motion.div whileHover={{scale:1.1}} transition={{duration:.8}} className='logo'>
+            <div className='boots'>
+              <Link to='/'><GiSteeltoeBoots/></Link>
+            </div>
+            <h3 id='app-name'>ShoeString</h3>
+          </motion.div>
+          <motion.div whileHover={{scale:1.1}} transition={{duration:.8}} className='profile-icon'>
             <Link to='/profile'><HiUserCircle /></Link>
           </motion.div>
         </div>
