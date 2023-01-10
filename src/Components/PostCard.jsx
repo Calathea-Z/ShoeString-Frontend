@@ -74,15 +74,17 @@ function PostCard({ username, userphoto, _id, img, location, body, tags, likes }
         <img className='post-photo' src={img} alt='Photo of location'/>
        </div> 
         <div className='post-individual-middle'>
-          <div className='flex-box'>
             <div>
               <a href='' className='location-button'><FiMapPin/>{' '}{location}</a>
             </div>
+            <motion.div className='flex-box' whileHover={{scale:1.1}} transition={{duration:.8}}>{likes}{'  '}likes<button id="likes"><ImHeart/></button>
+            </motion.div>
+            </div>
             <div className="feed-comment-format">
-                <div id="comment-username">{username} </div>
+                <div id="comment-username">{username}</div>
                 <div id="post-comments-feed">{body}</div>
             </div>
-        </div>
+       
         <form className='post-comment-add' onSubmit={editPost} >
           <div className='post-icon'><BsFillChatSquareTextFill/>
           </div>
@@ -99,7 +101,6 @@ function PostCard({ username, userphoto, _id, img, location, body, tags, likes }
             <button className='post-button' onClick={deletePost} >Delete</button>
           </div>   
         </form>
-    </div>
     </div>
   )
 }
