@@ -102,7 +102,25 @@ function PostCard({ username, userphoto, _id, img, location, body, tags, likes }
                 </button>
             </form>
         </div>
-    )
+        <form className='post-comment-add' onSubmit={editPost} >
+          <div className='post-icon'><BsFillChatSquareTextFill/>
+          </div>
+          <input type='text'
+            placeholder='Edit post here....'
+            name='body' 
+            id='body'
+            value={newEditForm.body} 
+            onChange={handleChange} 
+            className = 'post-individual-comment'
+          />
+          <div className='update-post-buttons'>
+            <button className='post-button' onClick={editPost}  >Update</button> 
+            <button className='post-button' onClick={deletePost} >Delete</button>
+            <h1> I AM A CHANGE</h1>
+          </div>   
+        </form>
+    </div>
+  )
 }
 
 export default PostCard
