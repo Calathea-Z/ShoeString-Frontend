@@ -19,11 +19,11 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 20px;
+    gap: 8px;
     border-radius: 2px;
     font-size: x-large;
     font-weight: bolder;
-    color:rgb(51, 163, 255);
+    color:rgb(5, 4, 4);
     padding-right: 20px;
     padding-left: 5px;
     padding-top: 15px;
@@ -86,16 +86,6 @@
     font-size: 25px;
 }
 
-#comment-username {
-    display: flex;
-    font-size:larger;
-    font-weight:bolder;
-    width: 40%;
-}
-
-#post-comments-feed {
-    margin-right: 10px;
-}
 
 .feed-comment-format {
     display: flex;
@@ -152,6 +142,27 @@ input, textarea {
     border: 2px solid black;
 }
 
+#comment-username {
+    display: flex;
+    font-size:larger;
+    font-weight:bolder;
+    width: 40%;
+}
+
+#post-comments-feed {
+    margin-right: 10px;
+}
+
+
+#mini-profile {
+    border-radius: 100%;
+    border: 2px solid black;
+    width: 80px;
+    height: 80px;
+    background: fill;
+
+}
+
 @media screen and (max-width:400px) {
     .post-individual-full {
         border-radius: 4px;
@@ -165,8 +176,7 @@ input, textarea {
     background: lightblue;
     width: 100%;
     display: flex;
-    justify-content: flex-end;
-    gap: 20px;
+    gap: 5px;
     padding-right: 10px;
     padding-bottom: 5px;
 }
@@ -206,6 +216,12 @@ input, textarea {
     margin-right: 20px;
     font-weight: bold;
 }
+
+#mini-profile {
+    width: 50px;
+    height: 50px;
+}
+
 
 
 }
