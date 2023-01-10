@@ -77,9 +77,8 @@
 }
 
 .post-individual-comment {
-    background: lightblue;
-    
-    padding: 10px;
+    background: lightblue;  
+    padding: 20px;
     font-size:18px;
     border-top: 1px solid black;
 }

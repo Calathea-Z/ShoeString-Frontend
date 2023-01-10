@@ -85,6 +85,9 @@ function PostCard({username, userphoto, _id, img, location, body, tags, likes}) 
               <a href='' className='location-button'><FiMapPin/>{' '}{location}</a>
             </div>
             <div>
+              <h6>{tags}</h6>
+            </div>
+            <div>
             <p>Liked by <span>{likes}</span> travelers</p>
             </div>
           </div>
@@ -92,8 +95,8 @@ function PostCard({username, userphoto, _id, img, location, body, tags, likes}) 
             <button className='post-button'><ImHeart/></button>
           </div>
         </div>
-        <div>
-          <p>Liked by <strong>{likes}</strong> fellow travelers</p>
+        <div className='feed-comment-format'>
+        <h4><strong>{username}{" "}</strong></h4><h5>{body}</h5>
         </div>
         <form className='post-comment-add' onSubmit={editPost} >
           <div className='post-icon'><BsFillChatSquareTextFill/></div>
