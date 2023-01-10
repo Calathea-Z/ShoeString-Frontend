@@ -7,7 +7,6 @@ import {BsFillChatSquareTextFill} from 'react-icons/bs'
 
 const CreatePost = ({userName, body, imageURL, _id, user, }) => {
   const [image, setImage] = useState(" ");
-  const [post, setPost] = useState({});
   const [newForm, setNewForm,] = useState({
       body: " ",
       tags: " ",
@@ -15,16 +14,6 @@ const CreatePost = ({userName, body, imageURL, _id, user, }) => {
   });
    
 //Grab data from all posts in mongoDB
-  const getPosts = async () => {
-    try {
-      const response = await fetch('https://shoe-string.herokuapp.com/posts');
-      const allPosts = await response.json()
-      setPost(allPosts);
-      console.log(allPosts);
-    }catch (err){
-      console.error(`Error in Try Block of getPosts function: ${err}`);
-    }
-  }
 
   const handleChange = (e) => {
     console.log(newForm);
@@ -34,7 +23,8 @@ const CreatePost = ({userName, body, imageURL, _id, user, }) => {
     setNewForm(userInput)
   }
 
-  const uploadImage = async () => {
+  const uploadImage = async (e) => {
+      e.preventDefault();
     const data = new FormData()
     data.append("file", image)
     data.append("upload_preset", "shoe_string" )
@@ -46,7 +36,7 @@ const CreatePost = ({userName, body, imageURL, _id, user, }) => {
     }).then(res=>res.json())
       .then(data=>{
         console.log(data)
-        const imgUrl = {img: data.url}
+        const imgUrl = {...newForm, img: data.url}
         setNewForm(imgUrl)
         console.log(newForm);
       })
@@ -58,32 +48,34 @@ const CreatePost = ({userName, body, imageURL, _id, user, }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const data = new FormData()
-    data.append("file", image)
-    data.append("upload_preset", "shoe_string" )
-    data.append("cloud_name", "dcqoiu7bp")
+    // const data = new FormData()
+    // data.append("file", image)
+    // data.append("upload_preset", "shoe_string" )
+    // data.append("cloud_name", "dcqoiu7bp")
 
-    fetch("https://api.cloudinary.com/v1_1/dcqoiu7bp/image/upload",{
-        method: "POST",
-        body: data
-    }).then(res=>res.json())
-      .then(data=>{
-        console.log(data)
-        const imgUrl = {img: data.url}
-        setNewForm(imgUrl)
-        console.log(newForm);
-      })
-      .catch(err => {
-        console.log(err)
-      })
-
-
+    // fetch("https://api.cloudinary.com/v1_1/dcqoiu7bp/image/upload",{
+    //     method: "POST",
+    //     body: data
+    // }).then(res=>res.json())
+    //   .then(data=>{
+    //     console.log(data)
+    //     const imgUrl = {img: data.url}
+    //     setNewForm(imgUrl)
+    //     console.log(newForm);
+    //   })
+    //   .catch(err => {
+    //     console.log(err)
+    //   })
 
 
-    const currentState = {...newForm };
-    console.log(`This is currentState at top of handleSubmit: ${currentState}`)
+
+
+ 
 
     try {
+      const currentState = {...newForm };
+      console.log(`This is currentState at top of handleSubmit: ${currentState}`)
+
       const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json"},
@@ -93,9 +85,7 @@ const CreatePost = ({userName, body, imageURL, _id, user, }) => {
       requestOptions)
 
       const createdPost = await response.json()
-      .then(console.log(response.json()))
       console.log(" I am created post", createdPost)
-      setPost([...post, createdPost])
       setNewForm({
         tags: " ",
         body: " ",
@@ -106,9 +96,9 @@ const CreatePost = ({userName, body, imageURL, _id, user, }) => {
       }
     }
 
-  useEffect(() => {
-    getPosts()
-}, [])
+//   useEffect(() => {
+
+// }, [])
 
 
   return (   
@@ -155,7 +145,7 @@ const CreatePost = ({userName, body, imageURL, _id, user, }) => {
           <div>
             <h1>ImageUpload</h1>
             <input type="file" onChange={(e)=>setImage(e.target.files[0])}/>
-            <button onClick={() => uploadImage()}>Upload Image </button>
+            <button onClick={(e) => uploadImage(e)}>Upload Image </button>
           </div>
           <button onClick={()=> handleSubmit()} type='submit'>Submit Post</button>
         </form>
