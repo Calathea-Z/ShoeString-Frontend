@@ -10,7 +10,7 @@
 
 @media screen and (max-width:400px) {
     .feed-full {
-
+        padding-top: 20px;
     }
 }
 
