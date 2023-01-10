@@ -62,7 +62,7 @@ button {
     font-weight: bolder;   
 }
 
-@media screen and (max-width:400px) {
+@media screen and (max-width:600px) {
     .full-top {
         display: flex; 
     }
