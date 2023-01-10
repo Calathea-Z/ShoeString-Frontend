@@ -8,37 +8,25 @@ button {
     position: sticky;
     z-index: 500;
     width: 100%;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     height: 80px;
     left: 0px;
     bottom: 0px;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid lightgray;
 }
 
 .bottom-footer {
-    height: 54px;
-    display: flex;
-    align-items: center;
-    object-fit: contain;
-    border-top: 1px solid lightgray;
     font-size:xx-large;
     font-weight: bolder;
 }
-
-.bottom-footer-wrapper {
-    max-width: 975px;
-    margin: 0 auto;
-    width: 100%;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
 .bottom-footer-buttons {
+    cursor: pointer;
     display: flex;
-    column-gap: 15px;
-    padding-top: 20px;
+    gap: 10px;
+    align-items: center;
 }
 
 .pencil {
