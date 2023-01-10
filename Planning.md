@@ -6,9 +6,9 @@
 - index feed of User Posts, displayed in chrono order
 - users can create Posts with:
     - title, body, images, tags
-- User Profile page displays a map w/ pins of all locations User has posted about
 - Users can add comments to posts
-- Users can add Likes to posts
+- data persists in database
+- collections of: posts, tags, users
 
 ## Wireframe Images
 ![ShoeString Wireframes](readme-images/ShoeString-Wireframes.png)
@@ -39,10 +39,12 @@ Corey is primarily repsonsible for the Backend of the app.
         - feed of User's own Posts (truncated versions)
 
 - Stretch
-    - User logins to app
+    - User can login to app
     - Tag show page
         -  view trending tags / countries
     - Comments
         - User Profile page displays all comments a User has made, with links to the original post
     - main page Map
         - a grand Map for the entire site - displays pins for every location that all users have posted about
+    - User Profile page displays a map w/ pins of all locations User has posted about
+    - Users can add Likes to posts
