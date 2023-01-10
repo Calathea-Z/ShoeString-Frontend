@@ -3,7 +3,7 @@ import '../Styles/navTop.css';
 import {GiSteeltoeBoots} from 'react-icons/gi';
 import { Link } from 'react-router-dom';
 import {HiUserCircle} from 'react-icons/hi';
-
+import { motion } from 'framer-motion';
 
 
 const NavTop = () => {
