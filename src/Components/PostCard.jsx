@@ -85,6 +85,9 @@ function PostCard({username, userphoto, _id, img, location, body, tags, likes}) 
               <a href='' className='location-button'><FiMapPin/>{' '}{location}</a>
             </div>
             <div>
+              <h6>{tags}</h6>
+            </div>
+            <div>
             <p>Liked by <span>{likes}</span> travelers</p>
             </div>
           </div>

@@ -2,3 +2,7 @@
     min-height: 100vh;
     background-color: #ebf1ff;
 }
+
+@media screen and (max-width: 400px) {
+    background-color: #ebf1ff
+}
