@@ -12,35 +12,6 @@ const CreatePost = ({userName, body, imageURL, _id, user, }) => {
       body: " ",
       tags: " ",
     });
-
-    //Set up state for grabbing images from cloudinary.
-
-    const [image, setImage] = useState("")
-    const [URL, setURL] = useState("");
-
-//Handle upload of new images to cloudinary.
-  const uploadImage =  () => {
-    const data = new FormData()
-    data.append("file", image)
-    data.append("cloudinary", "tutorial")
-    data.append("cloud_name", "breellz")
-
-    const CLOUDINARY_URL= 'cloudinary://981766245453231:gT8MRNYJfYyooEdH21sTdLFE5AA@dcqoiu7bp'
-
-    const requestOptions = {
-      method: "POST",
-      body: data
-    }
-      fetch(`${CLOUDINARY_URL}/image/upload`, requestOptions)
-    .then(resp => resp.json())
-    .then(data => {
-      console.log("IT ME")
-      setURL(data.URL)
-      console.log(data);
-    })
-    .catch(err => console.log(`Error in image upload ${err}`))
-    }
-
 //Grab data from all posts in mongoDB
   const getPosts = async () => {
     try {
@@ -61,10 +32,6 @@ const CreatePost = ({userName, body, imageURL, _id, user, }) => {
     userInput[e.target.name] = e.target.value;
     console.log(userInput)
     setNewForm(userInput)
-    const userPhoto = [e.target.files[0]]
-    console.log(userPhoto)
-    setImage(userPhoto)
-    
   }
 
  
