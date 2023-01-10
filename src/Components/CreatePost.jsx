@@ -12,6 +12,7 @@ const CreatePost = ({userName, body, imageURL, _id, user, }) => {
     //   body: " ",
     //   tags: " ",
     // });
+    
     const [post, setPost] = useState({});
     const [image, setImage] = useState(" ");
     const [postBody, setPostBody] = useState(" ");
