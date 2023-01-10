@@ -1,4 +1,6 @@
-
+button {
+    padding: 4px;
+}
 .post-individual-full {
     margin-top: 40px;
     border-radius: 2px;
@@ -60,6 +62,19 @@
     font-weight: bold;
     margin-top: -8px;
     margin-bottom: 2px;
+    padding: 6px;
+}
+
+.flex-box {
+    display:flex;
+    align-items: center;
+    padding-right: 7px;
+    margin-top: -8px;
+
+}
+
+.flex-box button {
+    background-color: lightblue;
 }
 
 .likes {
@@ -89,17 +104,20 @@
 
 .feed-comment-format {
     display: flex;
-    justify-content: space-between;
-    gap: 5px;
+    justify-content: flex-start;
+    gap: 10px;
     padding-left: 4px;
     font-size: large;
     padding-bottom: 5px; 
+}
 
+.comment-username {
+    padding: 15px;
 }
 
 .post-individual-comment {
     background: lightblue;  
-    padding: 10px;
+    padding: 20px;
     font-size:18px;
     border-top: 1px solid black;
 }
@@ -127,6 +145,7 @@
 
 .update-post-buttons {
     padding-left: 10px;
+    padding-bottom: 2px;
     margin-right: -38px;
 }
 
@@ -144,8 +163,10 @@ input, textarea {
 
 #comment-username {
     display: flex;
-    font-size:larger;
+    font-size:large;
     font-weight:bolder;
+    padding-right: 20px;
+    width:min-content;
 }
 
 #post-comments-feed {
@@ -159,7 +180,14 @@ input, textarea {
     width: 80px;
     height: 80px;
     background: fill;
+}
 
+#likes {
+    font-size:larger;
+}
+
+#likes:hover {
+    color: rgb(0, 186, 247);
 }
 
 @media screen and (max-width:600px) {
