@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import '../Styles/navTop.css';
-import {VscSettingsGear} from 'react-icons/vsc';
 import {GiSteeltoeBoots} from 'react-icons/gi';
 import { Link } from 'react-router-dom';
+import {HiUserCircle} from 'react-icons/hi';
 
 
 
@@ -15,13 +15,9 @@ const NavTop = () => {
               <Link to='/'><span className='boots'><GiSteeltoeBoots/></span></Link>
               <h3 id='app-name'>ShoeString</h3>
           </div>
-          <div>
-            <button className='text-button-logout'>Log Out</button>
-          </div>
-          <div className='top-header-buttons'>
-            <button className='primary-button'>Log in</button>
-            <button className='text-button'>Sign Up</button>
-          </div>
+          <motion.div whileHover={{scale:1.1}} transition={{duration:.8}} className='bottom-footer-buttons'>
+            <Link to='/profile'><HiUserCircle /></Link>
+          </motion.div>
         </div>
       </div>
     </nav>

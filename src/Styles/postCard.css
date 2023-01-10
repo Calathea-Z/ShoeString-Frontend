@@ -146,7 +146,6 @@ input, textarea {
     display: flex;
     font-size:larger;
     font-weight:bolder;
-    width: 40%;
 }
 
 #post-comments-feed {
