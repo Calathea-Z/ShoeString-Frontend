@@ -117,6 +117,7 @@ function PostCard({username, userphoto, _id, img, location, body, tags, likes}) 
           <div className='update-post-buttons'>
             <button className='post-button' onClick={editPost}  >Update</button> 
             <button className='post-button' onClick={deletePost} >Delete</button>
+            <h1> I AM A CHANGE</h1>
           </div>   
         </form>
     </div>
