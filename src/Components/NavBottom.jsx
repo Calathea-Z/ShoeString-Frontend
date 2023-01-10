@@ -11,10 +11,10 @@ const NavBottom = ({onClickProp}) => {
       <div className='bottom-footer'>
         <div className='bottom-footer-wrapper'>
           <motion.div whileHover={{scale:1.1}} transition={{duration:.8}} className='bottom-footer-buttons'>
-            <Link to='/createpost' className='pencil'><FaPencilAlt className='pencil'/></Link>
-            <div className='bottom-footer-wrapper'>
+            <Link to='/createpost' className='pencil'><FaPencilAlt className='pencil'/>Create A New Post</Link>
+            {/* <div className='bottom-footer-wrapper'>
               <h6>Create A New Post</h6>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </div>
