@@ -68,6 +68,8 @@ function PostCard({ username, userphoto, _id, img, location, body, tags, likes }
     }, [])
 
     return (
+    <div>
+        <div>
         <div className="post-individual-full">
             <div className="post-individual-header">
                 <p>{username}</p>
@@ -79,7 +81,7 @@ function PostCard({ username, userphoto, _id, img, location, body, tags, likes }
                 <div className="flex-box">
                     <div>
                         <a href="" className="location-button">
-                            <FiMapPin /> {location}
+                            <FiMapPin /> {location[0]},   {location[1]}
                         </a>
                     </div>
                     <div>
@@ -95,7 +97,7 @@ function PostCard({ username, userphoto, _id, img, location, body, tags, likes }
                 </div>
             </div>
             <div>
-              <h6>{tags}</h6>
+            <p>Liked by <span>{likes}</span> travelers</p>
             </div>
             
           </div>
@@ -109,8 +111,7 @@ function PostCard({ username, userphoto, _id, img, location, body, tags, likes }
         <div id='post-comments-feed'>{body}</div>
         </div>
         <form className='post-comment-add' onSubmit={editPost} >
-          <div className='post-icon'><BsFillChatSquareTextFill/>
-          </div>
+          <div className='post-icon'><BsFillChatSquareTextFill/></div>
           <input type='text'
             placeholder='Edit post here....'
             name='body' 
@@ -118,11 +119,9 @@ function PostCard({ username, userphoto, _id, img, location, body, tags, likes }
             value={newEditForm.body} 
             onChange={handleChange} 
             className = 'post-individual-comment'
-          />
-          <div className='update-post-buttons'>
-            <button className='post-button' onClick={editPost}  >Update</button> 
-            <button className='post-button' onClick={deletePost} >Delete</button>
-          </div>   
+            />
+          <button className='post-button' onClick={editPost}  >EDIT</button> 
+          <button className='post-button' onClick={deletePost} >DELETE</button>   
         </form>
     </div>
   )
