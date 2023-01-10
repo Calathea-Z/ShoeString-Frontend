@@ -13,11 +13,15 @@ import { useEffect, useRef } from 'react'
             cloudName: "dcqoiu7bp",
             uploadPreset: "shoe_string"
         }, function(error,result) {
-            console.log(result);
+            if (!error && result && result.event === "success"){
+
+                console.log(result.info.secure_url); 
+            } 
         });
     }, [])
+
     return(
-        <button onClick={() => widgetRef.current.open()}>
+        <button onClick={() => widgetRef.current.open()} >
             Upload Photo
         </button>
     )
