@@ -8,7 +8,6 @@ import { useState, useEffect } from "react"
 function PostCard({ username, userphoto, _id, img, location, body, tags, likes }) {
     const [post, setPost] = useState([])
     const [newEditForm, setNewEditForm] = useState("")
-
     // const handleChange = (e) => {
     //   const userInput = {newEditForm}
     //   userInput[e.target.name] = e.target.value;
@@ -68,21 +67,33 @@ function PostCard({ username, userphoto, _id, img, location, body, tags, likes }
     }, [])
 
     return (
-    <div>
         <div>
-        <div className="post-individual-full">
-            <div className="post-individual-header">
-                <p>{username}</p>
-            </div>
-            <div className="post-body">
-                <img className="post-photo" src={img} alt="location" />
-            </div>
-            <div className="post-individual-middle">
-                <div className="flex-box">
-                    <div>
-                        <a href="" className="location-button">
-                            <FiMapPin /> {location[0]},   {location[1]}
-                        </a>
+            <div>
+                <div className="post-individual-full">
+                    <div className="post-individual-header">
+                        <p>{username}</p>
+                    </div>
+                    <div className="post-body">
+                        <img className="post-photo" src={img} alt="location" />
+                    </div>
+                    <div className="post-individual-middle">
+                        <div className="flex-box">
+                            <div>
+                                <a href="" className="location-button">
+                                    <FiMapPin /> {location[0]}, {location[1]}
+                                </a>
+                            </div>
+                            <div>
+                                <p>
+                                    Liked by <span>{likes}</span> travelers
+                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <button className="post-button">
+                                <ImHeart />
+                            </button>
+                        </div>
                     </div>
                     <div>
                         <p>
@@ -90,41 +101,33 @@ function PostCard({ username, userphoto, _id, img, location, body, tags, likes }
                         </p>
                     </div>
                 </div>
-                <div>
+                <div className="likes">
+                    <p>
+                        Likes <span>{likes}</span>
+                    </p>
                     <button className="post-button">
                         <ImHeart />
                     </button>
                 </div>
             </div>
-            <div>
-            <p>Liked by <span>{likes}</span> travelers</p>
+            <div className="feed-comment-format">
+                <div id="comment-username">{username} </div>
+                <div id="post-comments-feed">{body}</div>
             </div>
-            
-          </div>
-          <div className='likes'>
-            <p>Likes{' '}<span>{likes}</span></p>
-            <button className='post-button'><ImHeart/></button>
-          </div>
+            <form className="post-comment-add" onSubmit={editPost}>
+                <div className="post-icon">
+                    <BsFillChatSquareTextFill />
+                </div>
+                <input type="text" placeholder="Edit post here...." name="body" id="body" value={newEditForm.body} onChange={handleChange} className="post-individual-comment" />
+                <button className="post-button" onClick={editPost}>
+                    EDIT
+                </button>
+                <button className="post-button" onClick={deletePost}>
+                    DELETE
+                </button>
+            </form>
         </div>
-        <div className='feed-comment-format'>
-        <div id='comment-username'>{username}{" "}</div>
-        <div id='post-comments-feed'>{body}</div>
-        </div>
-        <form className='post-comment-add' onSubmit={editPost} >
-          <div className='post-icon'><BsFillChatSquareTextFill/></div>
-          <input type='text'
-            placeholder='Edit post here....'
-            name='body' 
-            id='body'
-            value={newEditForm.body} 
-            onChange={handleChange} 
-            className = 'post-individual-comment'
-            />
-          <button className='post-button' onClick={editPost}  >EDIT</button> 
-          <button className='post-button' onClick={deletePost} >DELETE</button>   
-        </form>
-    </div>
-  )
+    )
 }
 
 export default PostCard
