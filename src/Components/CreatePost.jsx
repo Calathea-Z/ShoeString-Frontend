@@ -1,6 +1,7 @@
 import '../Styles/createPost.css'
 import { useState, useEffect } from 'react';
 import {BsFillChatSquareTextFill} from 'react-icons/bs'
+import UploadWidget from '../Components/UploadWidget'
 
 
 
@@ -18,22 +19,26 @@ const CreatePost = ({userName, body, imageURL, _id, user, }) => {
     const [URL, setURL] = useState("");
 
 //Handle upload of new images to cloudinary.
-  const uploadImage = async () => {
+  const uploadImage =  () => {
     const data = new FormData()
     data.append("file", image)
-    data.append("upload_present", "tutorial")
-    data.append("cloud_name", "cloudinary")
+    data.append("cloudinary", "tutorial")
+    data.append("cloud_name", "breellz")
+
+    const CLOUDINARY_URL= 'cloudinary://981766245453231:gT8MRNYJfYyooEdH21sTdLFE5AA@dcqoiu7bp'
 
     const requestOptions = {
       method: "POST",
       body: data
     }
-      fetch("https://api.cloudinary.com/v1_1/cloudinary/image/upload", requestOptions)
+      fetch(`${CLOUDINARY_URL}/image/upload`, requestOptions)
     .then(resp => resp.json())
     .then(data => {
+      console.log("IT ME")
       setURL(data.URL)
+      console.log(data);
     })
-    .catch(err => console.log(err))
+    .catch(err => console.log(`Error in image upload ${err}`))
     }
 
 //Grab data from all posts in mongoDB
@@ -56,7 +61,10 @@ const CreatePost = ({userName, body, imageURL, _id, user, }) => {
     userInput[e.target.name] = e.target.value;
     console.log(userInput)
     setNewForm(userInput)
-    setImage(e.target.files[0])
+    const userPhoto = [e.target.files[0]]
+    console.log(userPhoto)
+    setImage(userPhoto)
+    
   }
 
  
@@ -118,16 +126,9 @@ const CreatePost = ({userName, body, imageURL, _id, user, }) => {
               <textarea type='text' id='tags' name='tags' placeholder='Add a #tag' className = 'post-individual-comment' value={newForm.tags} onChange={handleChange} />
             </div>
           </label>
-          <label htmlFor='images'>
-            <input type='file' onChange ={handleChange}></input>
-          </label>
-          <button className ='create-post-submit' id='submit-button' type='submit'value='Submit'>POST</button>
         </form>
-        <div>
-        <h1>Uploaded image will be displayed here</h1>
-        <img src={URL}/>
-        </div>
       </div>
+    <UploadWidget/>
     </div>
     </>
   )
