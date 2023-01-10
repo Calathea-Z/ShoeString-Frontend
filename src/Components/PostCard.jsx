@@ -82,7 +82,7 @@ function PostCard({ username, userphoto, _id, img, location, body, tags, likes }
         <div className='post-individual-middle'>
           <div className='flex-box'>
             <div>
-              <a href='' className='location-button'><FiMapPin/>{' '}{location[0]}, {location[1]</a>
+              <a href='' className='location-button'><FiMapPin/>{' '}{location}</a>
             </div>
             <div className="feed-comment-format">
                 <div id="comment-username">{username} </div>
