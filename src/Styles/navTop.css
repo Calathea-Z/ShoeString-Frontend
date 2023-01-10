@@ -10,7 +10,7 @@ button {
     z-index: 500;
     width: 100%;
     background-color: white;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .top-header {
@@ -18,7 +18,6 @@ button {
     height: 54px;
     display: flex;
     align-items: center;
-    object-fit: contain;
     border-bottom: 1px solid lightgray;
 }
 
@@ -29,38 +28,28 @@ button {
     padding: 0 20px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-}
-
-.top-header-buttons {
-    display: flex;
-    column-gap: 15px;
-}
-
-.primary-button {
-    background-color: rgb(101, 195, 195);
-    border-radius: 4px;
-    color: #fff;
-    padding: 5px 9px;
-    font-weight: 600;
-    text-align: center;
-}
-
-.text-button {
-    color: rgb(101, 195, 195);
-    font-weight: 600;
-    line-height: 28px;
-    background-color: transparent;
+    justify-content: space-between;
 }
 
 .logo {
     font-size:xx-large;
     font-weight:900;
     display: flex;
-    gap: 20px;
+    gap: 4px;
     flex-direction:row-reverse;
     justify-self: flex-start;
+    align-items: center;
     color: rgb(101, 195, 195);
+}
+
+.boots {
+    padding-bottom: 6px;
+    font-size: 50px;
+}
+
+.profile-icon {
+    padding: 6px;
+    font-size: 50px;
 }
 
 .logo span:hover {
@@ -88,10 +77,23 @@ button {
         height: 54px;
         width: 100%;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         align-items: center;
-        /* object-fit: contain; */
         border-bottom: 1px solid lightgray;
+    }
+    .top-header-wrapper {
+        justify-content: flex-end;
+        gap: 4px;
+    }
+
+    .boots {
+        margin-left: 20px;
+        padding-top: 4px;
+        font-size: 50px;
+    }
+    
+    .profile-icon {
+        font-size: 50px;
     }
 }
 
