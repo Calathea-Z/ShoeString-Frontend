@@ -99,7 +99,8 @@ function PostCard({username, userphoto, _id, img, location, body, tags, likes}) 
         <div id='post-comments-feed'>{body}</div>
         </div>
         <form className='post-comment-add' onSubmit={editPost} >
-          <div className='post-icon'><BsFillChatSquareTextFill/></div>
+          <div className='post-icon'><BsFillChatSquareTextFill/>
+          </div>
           <input type='text'
             placeholder='Edit post here....'
             name='body' 
@@ -107,9 +108,11 @@ function PostCard({username, userphoto, _id, img, location, body, tags, likes}) 
             value={newEditForm.body} 
             onChange={handleChange} 
             className = 'post-individual-comment'
-            />
-          <button className='post-button' onClick={editPost}  >EDIT</button> 
-          <button className='post-button' onClick={deletePost} >DELETE</button>   
+          />
+          <div className='update-post-buttons'>
+            <button className='post-button' onClick={editPost}  >Update</button> 
+            <button className='post-button' onClick={deletePost} >Delete</button>
+          </div>   
         </form>
     </div>
   )

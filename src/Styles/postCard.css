@@ -72,11 +72,11 @@
     color: black;
     background-color: lightblue;
     padding-right: 10px; padding-left: 5px;
-    font-size: 15px;
+    font-size: 20px;
 }
 
 .post-button:hover {
-    color: black;
+    color: rgba(248, 248, 248, 0.919);
 }
 
 .post-icon {
@@ -130,11 +130,18 @@
 
 .post-comment-add {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    padding: 4px;
-    margin: 2px;
-    gap: 6px;
+    margin-top: 2px;
+}
+
+.update-post-buttons {
+    padding-left: 10px;
+    margin-right: -38px;
+}
+
+.update-post-buttons button {
+    font-weight: bold;
 }
 
 input, textarea {
@@ -164,9 +171,40 @@ input, textarea {
     padding-bottom: 5px;
 }
 
+.post-button {
+    font-size: 20px;
+}
+
 .profile-photo {
     height: 6rem;
     width: 6rem;
+}
+.feed-comment-format {
+    display: flex;
+    justify-content: flex-start;
+    gap: 2px;
+    font-size:smaller;
+    padding-bottom: 5px; 
+}
+
+.post-buttons {
+    font-size: 5px;
+}
+
+.update-post-buttons {
+    padding-left: 10px;
+    margin-right: -22px;
+}
+#comment-username {
+    display:inline-flex;
+    font-size:small;
+    font-weight:bolder;
+    width: 300px;
+}
+
+#post-comments-feed {
+    margin-right: 20px;
+    font-weight: bold;
 }
 
 
