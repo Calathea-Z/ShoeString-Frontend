@@ -15,7 +15,7 @@ const NavBottom = ({onClickProp}) => {
             <Link to='/search'><HiSearch /></Link>
           </motion.div>
           <motion.div whileHover={{scale:1.1}} transition={{duration:.8}} className='bottom-footer-buttons'>
-            <button className='pencil' onClick={() => onClickProp }><FaPencilAlt className='pencil'/><h6>Create A New Post</h6></button> 
+            <Link to='/createpost' className='pencil'><FaPencilAlt className='pencil'/><h6>Create A New Post</h6></Link>
           </motion.div>
           <motion.div whileHover={{scale:1.1}} transition={{duration:.8}} className='bottom-footer-buttons'>
             <Link to='/profile'><HiUserCircle /></Link>

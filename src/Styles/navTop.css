@@ -73,6 +73,29 @@ button {
     font-weight: bolder;   
 }
 
+@media screen and (max-width:400px) {
+    .full-top {
+        display: flex; 
+    }
+    
+    #app-name{
+        color: transparent;
+        font-size: 1px;
+    }
+
+    .top-header {
+        top: 0;
+        height: 54px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* object-fit: contain; */
+        border-bottom: 1px solid lightgray;
+    }
+}
+
+
 
 
 

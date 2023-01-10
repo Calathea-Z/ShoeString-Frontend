@@ -1,33 +1,19 @@
 import '../Styles/createPost.css'
 import { useState, useEffect } from 'react';
 import {BsFillChatSquareTextFill} from 'react-icons/bs'
-// import { motion } from 'framer-motion';
+// import UploadWidget from '../Components/UploadWidget'
 
 
 
 const CreatePost = ({userName, body, imageURL, _id, user, }) => {
-
-  //Set up state for posts
-  const [post, setPost] = useState({});
+  const [image, setImage] = useState(" ");
   const [newForm, setNewForm,] = useState({
-    username: " ",
-    title: " ",
-    location:[],
-    tags: "",
-    body: " ",
+      body: " ",
+      tags: " ",
+      img: " "
   });
-  const [newImage, setNewImage] = useState(null);
-
-  const getPosts = async () => {
-    try {
-      const response = await fetch('https://shoe-string.herokuapp.com/posts');
-      const allPosts = await response.json()
-      setPost(allPosts);
-      // console.log(allPosts);
-    }catch (err){
-      console.error(`Error in Try Block of getPosts function: ${err}`);
-    }
-  }
+   
+//Grab data from all posts in mongoDB
 
   const handleChange = (e) => {
     console.log(newForm);
@@ -35,14 +21,61 @@ const CreatePost = ({userName, body, imageURL, _id, user, }) => {
     userInput[e.target.name] = e.target.value;
     console.log(userInput)
     setNewForm(userInput)
-    setNewImage(e.target.files[0])
   }
-  const handleSubmit = async (e) => {
 
+  const uploadImage = async (e) => {
+      e.preventDefault();
+    const data = new FormData()
+    data.append("file", image)
+    data.append("upload_preset", "shoe_string" )
+    data.append("cloud_name", "dcqoiu7bp")
+
+    fetch("https://api.cloudinary.com/v1_1/dcqoiu7bp/image/upload",{
+        method: "POST",
+        body: data
+    }).then(res=>res.json())
+      .then(data=>{
+        console.log(data)
+        const imgUrl = {...newForm, img: data.url}
+        setNewForm(imgUrl)
+        console.log(newForm);
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    }
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const currentState = { ...newForm };
-    console.log(`This is currentState at top of handleSubmit: ${currentState}`)
+
+    // const data = new FormData()
+    // data.append("file", image)
+    // data.append("upload_preset", "shoe_string" )
+    // data.append("cloud_name", "dcqoiu7bp")
+
+    // fetch("https://api.cloudinary.com/v1_1/dcqoiu7bp/image/upload",{
+    //     method: "POST",
+    //     body: data
+    // }).then(res=>res.json())
+    //   .then(data=>{
+    //     console.log(data)
+    //     const imgUrl = {img: data.url}
+    //     setNewForm(imgUrl)
+    //     console.log(newForm);
+    //   })
+    //   .catch(err => {
+    //     console.log(err)
+    //   })
+
+
+
+
+ 
+
     try {
+      const currentState = {...newForm };
+      console.log(`This is currentState at top of handleSubmit: ${currentState}`)
+
       const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json"},
@@ -52,57 +85,72 @@ const CreatePost = ({userName, body, imageURL, _id, user, }) => {
       requestOptions)
 
       const createdPost = await response.json()
-      .then(console.log(response.json()))
       console.log(" I am created post", createdPost)
-      setPost([...post, createdPost])
       setNewForm({
-        username: " ",
-        location: (0),
         tags: " ",
         body: " ",
+        img: " "
       })
       }catch (err) {
       console.error(`Error in Try Block of handleSubmit function: ${err}`)
       }
-  }
-
-  const handleImageUpload = async (e) => {
-    e.preventDefault()
-    const image = {newImage}
-    console.log(image);
-    try{
-      const requestOptions = {
-        method: "POST",
-        headers: { "Content-Type": "multipart/form-data"},
-      }
-    }catch(err){
-        console.error(err);
     }
-  }
 
-  useEffect(() => {
-    getPosts()
-}, [])
+//   useEffect(() => {
+
+// }, [])
 
 
-  return (
+  return (   
     <>
     <div className='post'>
       <div className='post-header'>
         <h1>Create new post</h1>
         <h3>{userName}</h3>
       </div>
-      <form onSubmit={handleSubmit}>
-        <h1>Check if work React File Upload</h1>
-        <div className='post-comment-add'>
-          <div className='post-icon'><BsFillChatSquareTextFill/></div>
-          <textarea type='text' placeholder='Add a comment...' className = 'post-individual-comment' />
+      <div className='post-body-form'>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor='body'>
+            <div className='post-comment-add'>
+              <div className='post-icon-non-feed'>
+                <BsFillChatSquareTextFill/>
+              </div>
+              <textarea 
+              type='text' 
+              id='body' 
+              name='body' 
+              placeholder='Add a comment...' 
+              className = 'post-individual-comment' 
+              value={newForm.body} 
+              onChange={handleChange}
+              />
+              </div>
+          </label>
+          <label htmlFor='tags'>
+            <div className='post-comment-add'>
+              <div className='post-icon-non-feed'>
+                <h4>Tags</h4>
+              </div>
+              <textarea
+               type='text' 
+               id='tags' 
+               name='tags' 
+               placeholder='Add a #tag' 
+               className = 'post-individual-comment' 
+               value={newForm.tags} 
+               onChange={handleChange} 
+               />
+            </div>
+          </label>
+          <div>
+            <h1>ImageUpload</h1>
+            <input type="file" onChange={(e)=>setImage(e.target.files[0])}/>
+            <button onClick={(e) => uploadImage(e)}>Upload Image </button>
+          </div>
+          <button onClick={()=> handleSubmit()} type='submit'>Submit Post</button>
+        </form>
         </div>
-        <input type='file' />
-        <button type='submit'>Go!</button>
-      </form>
     </div>
-
     </>
   )
 }

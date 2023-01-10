@@ -13,7 +13,7 @@ const NavTop = () => {
         <div className='top-header-wrapper'>
           <div className='logo'>
               <Link to='/'><span className='boots'><GiSteeltoeBoots/></span></Link>
-              <h3>ShoeString</h3>
+              <h3 id='app-name'>ShoeString</h3>
           </div>
           <div>
             <button className='text-button-logout'>Log Out</button>
