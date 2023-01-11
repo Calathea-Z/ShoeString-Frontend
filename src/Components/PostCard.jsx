@@ -5,7 +5,7 @@ import { FiMapPin } from "react-icons/fi"
 import { BsFillChatSquareTextFill } from "react-icons/bs"
 import { useState, useEffect } from "react"
 
-function PostCard({ username, userphoto, _id, img, location, body, tags, likes }) {
+function PostCard({ username, _id, img, location, body, tags, likes }) {
     const [post, setPost] = useState([])
     const [newEditForm, setNewEditForm] = useState("")
 
@@ -25,7 +25,6 @@ function PostCard({ username, userphoto, _id, img, location, body, tags, likes }
             const response = await fetch(`https://shoe-string.herokuapp.com/posts/${_id}`, requestOptions)
             const editedPost = await response.json()
             setPost(editedPost)
-            // setNewEditForm(editedPost)
             console.log("This is your edited post :", editedPost)
         } catch (err) {
             console.log(err)

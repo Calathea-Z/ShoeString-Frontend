@@ -13,14 +13,6 @@ html {
   font-family: 'PT Sans Narrow', sans-serif;
 }
 
-/* :root{
-    --color-bg:  rgb(84, 94, 66);
-    --color-bg-alt: rgb(161, 183, 212);
-    --color-bg-alt-two: rgb(127, 137, 100)
-    --color-main: rgb(161, 107, 92)
-    --color-outline: rgb((224, 193, 149) 0.172);
-} */
-
 body {
   color: #262626;
   font-size: 14px;

@@ -19,9 +19,8 @@ function Feed() {
     }
     useEffect(() => {
         getPosts()
-    }, []);
+    }, [post]);
 
-//-----------------------------------------------------------
   return ( 
   <>
     <div className='feed-full'>
