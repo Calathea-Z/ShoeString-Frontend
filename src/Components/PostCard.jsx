@@ -67,7 +67,7 @@ function PostCard({ username, userphoto, _id, img, location, body, tags, likes }
     }, [])
 
   return (
-    <div className='post-individual-full'>
+      <div className='post-individual-full'>
       <div className='post-individual-header'>
         <div className='mini-profile-image'>
           <img id='mini-profile' src={'https://cps-static.rovicorp.com/2/Open/Getty/Trey%20Anastasio/_derived_jpg_q90_250x250_m0/56790670.jpg?partner=allrovi.com'}/>
@@ -119,6 +119,7 @@ function PostCard({ username, userphoto, _id, img, location, body, tags, likes }
             <h1> I AM A CHANGE</h1>
           </div>   
         </form>
+    </div>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-// import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import '../Styles/navTop.css';
 import {GiSteeltoeBoots} from 'react-icons/gi';
 import { Link } from 'react-router-dom';
