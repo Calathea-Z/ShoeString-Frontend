@@ -1,7 +1,7 @@
 import '../Styles/feed.css';
 import './PostCard';
 import PostCard from './PostCard';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Feed() {
 
@@ -19,17 +19,16 @@ function Feed() {
     }
     useEffect(() => {
         getPosts()
-    }, []);
+    }, [post]);
 
-//-----------------------------------------------------------
   return ( 
   <>
     <div className='feed-full'>
       {post.allPosts?.map((post) => {
         return(
-          <>
-            <PostCard key={post.id} username={post.username} body={post.body} likes={post.likes} img={post.img} location={post.location}/>
-          </>
+          <div>
+            <PostCard key={post.id} username={post.username} _id={post._id} body={post.body} likes={post.likes} img={post.img} location={post.location}/>
+          </div>
         )
       })}
     </div> 

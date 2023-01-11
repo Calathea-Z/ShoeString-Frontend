@@ -1,131 +1,158 @@
-import '../Styles/createPost.css'
-import { useState, useEffect } from 'react';
-import {BsFillChatSquareTextFill} from 'react-icons/bs'
-import { motion } from 'framer-motion';
+import { MdClose } from 'react-icons/md';
+import { useState } from "react"
+import { BsFillChatSquareTextFill } from "react-icons/bs"
+import '../Styles/createPost.css';
 
 
-
-const CreatePost = (props) => {
-
-  //Set up state for posts
-  const [post, setPost] = useState([]);
-  const [newForm, setNewForm,] = useState({
-    username: " ",
-    title: " ",
-    location:[],
-    tags: " ",
-    body: " ",
-    img: " ",
-  });
-
-  const getPosts = async () => {
-    try {
-      const response = await fetch('https://shoe-string.herokuapp.com/posts');
-      const allPosts = await response.json()
-      setPost(allPosts);
-      // console.log(allPosts);
-    }catch (err){
-      console.error(`Error in Try Block of getPosts function: ${err}`);
-    }
-  }
+const CreatePost= ({setIsOpen}) => {
+  const [image, setImage] = useState(" ")
+  const [newForm, setNewForm] = useState({
+      username: " ",
+      body: " ",
+      tags: " ",
+      img: " ",
+  })
 
   const handleChange = (e) => {
+      console.log(newForm)
+      const userInput = { ...newForm }
+      userInput[e.target.name] = e.target.value
+      console.log(userInput)
+      setNewForm(userInput)
+  }
 
-    console.log(newForm);
-    const userInput = {...newForm}
-    userInput[e.target.name] = e.target.value;
-    console.log(userInput)
-    setNewForm(userInput)
+  const uploadImage = async (e) => {
+      e.preventDefault()
+      const data = new FormData()
+      data.append("file", image)
+      data.append("upload_preset", "shoe_string")
+      data.append("cloud_name", "dcqoiu7bp")
+
+      fetch("https://api.cloudinary.com/v1_1/dcqoiu7bp/image/upload", {
+          method: "POST",
+          body: data,
+      })
+          .then((res) => res.json())
+          .then((data) => {
+              console.log(data)
+              const imgUrl = { ...newForm, img: data.url }
+              setNewForm(imgUrl)
+              console.log(newForm)
+          })
+          .catch((err) => {
+              console.log(err)
+          })
   }
 
   const handleSubmit = async (e) => {
-    
-    e.preventDefault();
-    const currentState = { ...newForm };
-    console.log(`This is currentState at top of handleSubmit: ${currentState}`)
-    try {
-      
-      const requestOptions = {
-        method: "POST",
-        headers: { "Content-Type": "application/json"},
-        body: JSON.stringify(currentState)
-      }
-    
-      const response = await fetch("https://shoe-string.herokuapp.com/posts", 
-      requestOptions)
-      const createdPost = await response.json()
-      .then(console.log(response.json()))
-      console.log(" I am created post", createdPost)
-      setPost([...post, createdPost])
-      setNewForm({
-        username: " ",
-        title:" ",
-        location: [],
-        tags: " ",
-        body: " ",
-        img: " ",
-      }).then(() => {
-        console.log('new post added');
-      })
-      }catch (err) {
-      console.error(`Error in Try Block of handleSubmit function: ${err}`)
-      }
+      e.preventDefault()
+      try {
+          const currentState = { ...newForm, location: [newForm.latitude, newForm.longitude] }
+          console.log(`This is currentState at top of handleSubmit: ${currentState}`)
 
+          const requestOptions = {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(currentState),
+          }
+          const response = await fetch("https://shoe-string.herokuapp.com/posts", requestOptions)
+
+          const createdPost = await response.json()
+          console.log(" I am created post", createdPost)
+          setNewForm({
+              username: " ",
+              tags: " ",
+              body: " ",
+              img: " ",
+          })
+          setIsOpen(false);
+      } catch (err) {
+          console.error(`Error in Try Block of handleSubmit function: ${err}`)
+      }
   }
 
-  useEffect(() => {
-    getPosts()
-}, [])
-
-
-  return (
-    <>
-    <div className='create-post'>
-      <div className='create-card-top'>
-        <h1>Create new post</h1>
-      </div>
-      <form className='post-comment-add-' onSubmit={handleSubmit} >
-        <div className= 'big-input-form'>
-          <label className= 'flex-box' htmlFor='username'>
-            <div className='flex-box'>
-              <p>Username:</p>
+return (
+<>
+  <div className='stopclose'>
+  <div className='darker-background' >
+    <div className='center-it'>
+      <div className='modal'>
+        <div className='modal-header'>
+          <h5 className='modal-title'>Create A Post</h5>
+        </div>
+        <button className='close-button' onClick={() => setIsOpen(false)}><MdClose className='close'/>
+        </button> 
+        <div className='modal-body'>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="username">
+            <div>
+              <div>
+                UserName:
+              </div>
+              <input type="text" id="username" name="username" placeholder="Add a comment..." value={newForm.username} onChange={handleChange} required
+              />
             </div>
-            <input className = 'post-individual-comment' placeholder='...' type='text' required id='username' name='username' value={newForm.username} onChange={handleChange} />
           </label>
-          <label className= 'flex-box' htmlFor='title'>
-            <div className='flex-box'>
-              <p>Title:</p>
+          <label htmlFor="body">
+            <div>
+              <div>
+                <BsFillChatSquareTextFill />
+              </div>
+              <textarea type="text" id="body" name="body" placeholder="Add a comment..."  value={newForm.body} onChange={handleChange} required
+               />
             </div>
-            <input className = 'post-individual-comment' type='text' required id='title' name='title' value={newForm.title} onChange={handleChange} />
           </label>
-          <label className= 'flex-box' htmlFor='location'>
-            <div className='flex-box'>
-              <p>Location:</p>
+          <label htmlFor="latitude">
+            <div>
+              <div>
+                <h4>Latitude</h4>
+              </div>
+              <input type="text" id="latitude" name="latitude" value={newForm.latitude} onChange={handleChange}
+              />
             </div>
-            <input className = 'post-individual-comment' type='text'  id='location' name='location' value={newForm.location} onChange={handleChange} />
           </label>
-          <label className= 'flex-box' htmlFor='tags'>
-            <div className='flex-box'>
-              <p>Tags:</p>
+          <label htmlFor="longitude">
+            <div>
+              <div>
+                <h4>Longitude</h4>
+              </div>
+              <input type="text" id="longitude" name="longitude" value={newForm.longitude} onChange={handleChange}
+              />
             </div>
-            <input className = 'post-individual-comment' type='text'  id='tags' name='tags' value={newForm.tags} onChange={handleChange} />
           </label>
-          <label className='post-comment-add' htmlFor='title'>
-            <div className='post-icon'>
-              <BsFillChatSquareTextFill/>
+          <label htmlFor="tags">
+            <div>
+              <div>
+                <h4>Tags</h4>
+              </div>
+              <textarea type="text" id="tags" name="tags" placeholder="Add a #tag" value={newForm.tags} onChange={handleChange}
+              />
             </div>
-            <input className = 'big-comment-box' type='text' placeholder='Share your thoughts..' required id='body' name='body' value={newForm.body} onChange={handleChange}  />
           </label>
-          <div className='photo-box'>
-            <input className='post-comment-add' type='file' name='file' onChange={handleChange}/>
+          <div className='image-upload-box'>
+          <div>
+            <h1>Add An Image</h1>
+            <input type="file" onChange={(e) => setImage(e.target.files[0])}/>
           </div>
-        <motion.button type='submit' className='post-button' whileHover={{scale:1.1}} transition={{duration:.8}}
-        >Post</motion.button>  
-        </div> 
-      </form>  
-    </div>  
-    </>
-  )
+          </div>
+          <div>
+            <div className='modal-buttons-container'>
+              <button className='delete-button' onClick={(e) => uploadImage(e)}>
+                Upload Photo
+              </button>
+              <button className='cancel-button' onClick={() => handleSubmit()} type='submit'>
+              Add Post
+              </button>
+            </div>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div> 
+</>
+)
 }
 
 export default CreatePost

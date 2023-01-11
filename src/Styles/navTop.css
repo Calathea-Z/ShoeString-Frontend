@@ -1,54 +1,101 @@
-input {
-    background-color: rgb(240, 235, 235);
-    width: 100%;
-    padding-left: 20px;
-    border-radius: 5px;
-}
-
-input:hover {
-    border: solid black 1px;
-}
-
-nav {
-    display: flex;
-    background: var(--color-bg-alt-two);
-    padding-top: 1.6rem; padding-bottom: .8rem;
-    z-index: 2;
-}
-
-nav a {
-    background: transparent;
-    color: var(--color-bg-alt);
-    font-size: 2.5rem;  
-    padding: 2rem;
-}
-
-nav a:hover {
-    color: rgb(247, 247, 247);
+button {
+    font-size: 14px;
+    line-height: 18px;
+    cursor: pointer;
+    border: 1px solid transparent;
 }
 
 .full-top {
     position: fixed;
+    z-index: 500;
     width: 100%;
+    background-color: white;
+    margin-bottom: 20px;
+}
+
+.top-header {
     top: 0;
+    height: 54px;
     display: flex;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+}
+
+.top-header-wrapper {
+    max-width: 975px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
-    box-shadow: 0px 0px 6px 0px var(--color-outline);;
-    z-index: 50;
-
 }
 
-.nav-comp {
-    display: relative;
-    margin:-15px;
- 
+.logo {
+    font-size:xx-large;
+    font-weight:900;
+    display: flex;
+    gap: 4px;
+    flex-direction:row-reverse;
+    justify-self: flex-start;
+    align-items: center;
+    color: rgb(101, 195, 195);
 }
 
-.nav-comp span {
-    color:rgb(203, 248, 250);
+.boots {
+    padding-bottom: 6px;
+    font-size: 50px;
 }
 
+.profile-icon {
+    padding: 6px;
+    font-size: 50px;
+}
 
+.logo span:hover {
+    color: rgb(101, 195, 195);
+}
+
+.text-button-logout {
+    color: black;
+    background-color: white;
+    font-weight: bolder;   
+}
+
+@media screen and (max-width:600px) {
+    .full-top {
+        display: flex; 
+    }
+    
+    #app-name{
+        color: transparent;
+        font-size: 1px;
+    }
+
+    .top-header {
+        top: 0;
+        height: 54px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        border-bottom: 1px solid lightgray;
+    }
+    .top-header-wrapper {
+        justify-content: flex-end;
+        gap: 4px;
+    }
+
+    .boots {
+        margin-left: 20px;
+        padding-top: 4px;
+        font-size: 50px;
+    }
+    
+    .profile-icon {
+        font-size: 50px;
+    }
+}
 
 
 

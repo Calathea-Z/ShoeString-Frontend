@@ -1,0 +1,12 @@
+.Auth {
+    display:flex;
+    flex-direction: column;
+    width:85vw;
+    margin: 0 auto;
+}
+input[type=submit]{
+    background-color:black;
+    color:white;
+    width:30vw;
+    margin: 10px auto;
+}

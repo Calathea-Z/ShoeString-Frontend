@@ -1,27 +1,33 @@
-import { motion } from 'framer-motion';
-import '../Styles/navTop.css';
-import {VscSettingsGear} from 'react-icons/vsc';
-import {GiSteeltoeBoots} from 'react-icons/gi';
-import { Link } from 'react-router-dom';
-
-
+import "../Styles/navTop.css"
+import { GiSteeltoeBoots } from "react-icons/gi"
+import { Link, Navigate } from "react-router-dom"
+import { HiUserCircle } from "react-icons/hi"
+import { motion } from "framer-motion"
 
 const NavTop = () => {
-  return (
-    <nav className='full-top'>
-      <motion.div
-      initial={{opacity: 0}}
-      whileInView={{opacity:1}}
-      whileHover={{scale:1.4}}
-      transition={{duration:1.8}}
-      className='nav-comp'>
-        <Link to='/'><span><GiSteeltoeBoots/></span></Link>
-      </motion.div>
-      <motion.div whileHover={{scale:1.1}} transition={{duration:.8}}  className='nav-comp'>
-        <Link to='/settings'><VscSettingsGear/></Link>
-      </motion.div>
-    </nav>
-  )
+    return (
+        <nav className="full-top">
+            <div className="top-header">
+                <div className="top-header-wrapper">
+                    <motion.div whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }} className="logo">
+                        <div className="boots">
+                            <Link to="/">
+                                <GiSteeltoeBoots />
+                            </Link>
+                        </div>
+                        <h3 id="app-name">ShoeString</h3>
+                    </motion.div>
+                    <motion.div whileHover={{ scale: 1.2 }} transition={{ duration: 0.2 }} className="profile-icon">
+                        <div>
+                            <Link to="/auth">
+                                <HiUserCircle />
+                            </Link>
+                        </div>
+                    </motion.div>
+                </div>
+            </div>
+        </nav>
+    )
 }
 
 export default NavTop

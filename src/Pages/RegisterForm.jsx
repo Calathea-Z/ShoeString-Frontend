@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
+import "../Styles/RegisterForm.css"
 
 const RegisterForm = ({ signUp }) => {
     const initialState = { username: "", password: "" }
@@ -24,18 +25,18 @@ const RegisterForm = ({ signUp }) => {
 
     return (
         <>
-            <h1>Register</h1>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="username">Name: </label>
-                <input id="username" name="username" value={input.username} onChange={handleChange} />
-                <br />
-                <br />
-                <label htmlFor="password">Password: </label>
-                <input id="password" name="password" value={input.password} onChange={handleChange} />
-                <br />
-                <br />
-                <input type="submit" value="Sign Up" />
-            </form>
+            <div className="RegisterForm">
+                <h1>Register</h1>
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor="username">
+                        <input id="username" name="username" placeholder="username" value={input.username} onChange={handleChange} />
+                    </label>
+                    <label htmlFor="password">
+                        <input id="password" name="password" placeholder="password" value={input.password} onChange={handleChange} />
+                    </label>
+                    <input type="submit" value="Sign Up" />
+                </form>
+            </div>
         </>
     )
 }

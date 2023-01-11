@@ -1,0 +1,10 @@
+.LoginForm{
+    margin-top:60px;
+    border-top:2px solid black;
+}
+h1 {
+    margin-top:20px;
+}
+input[type=submit] {
+    margin-bottom:20px;
+}
