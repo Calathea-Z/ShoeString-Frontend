@@ -25,7 +25,6 @@ function PostCard({ username, _id, img, location, body, tags, likes }) {
             const response = await fetch(`https://shoe-string.herokuapp.com/posts/${_id}`, requestOptions)
             const editedPost = await response.json()
             setPost(editedPost)
-            // setNewEditForm(editedPost)
             console.log("This is your edited post :", editedPost)
         } catch (err) {
             console.log(err)

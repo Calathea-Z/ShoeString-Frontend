@@ -21,7 +21,6 @@ function Feed() {
         getPosts()
     }, [post]);
 
-//-----------------------------------------------------------
   return ( 
   <>
     <div className='feed-full'>

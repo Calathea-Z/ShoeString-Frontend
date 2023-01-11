@@ -1,5 +1,3 @@
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import {FaPencilAlt} from 'react-icons/fa';
 import CreatePost from './CreatePost'
 import { useState } from 'react'
