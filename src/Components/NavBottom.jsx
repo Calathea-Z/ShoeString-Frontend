@@ -1,23 +1,21 @@
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import {HiSearch} from 'react-icons/hi';
 import {FaPencilAlt} from 'react-icons/fa';
+import CreatePost from './CreatePost'
+import { useState } from 'react'
 
 import '../Styles/navBottom.css'
 
-const NavBottom = ({onClickProp}) => {
+const NavBottom = (props) => {
+
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <nav className='full-bottom'>
       <div className='bottom-footer'>
-        <div className='bottom-footer-wrapper'>
-          <motion.div whileHover={{scale:1.1}} transition={{duration:.8}} className='bottom-footer-buttons'>
-            <Link to='/createpost' className='pencil'><FaPencilAlt className='pencil'/></Link>
-            <div className='bottom-footer-wrapper'>
-              <h6>Create A New Post</h6>
-            </div>
-          </motion.div>
-        </div>
+      <button className='primary-button' onClick={() => setIsOpen(true)}>
+      <FaPencilAlt/>{" "}Create A New Post
+      </button>
       </div>
+      {isOpen && <CreatePost setIsOpen={setIsOpen} />}
     </nav>
   )
 }

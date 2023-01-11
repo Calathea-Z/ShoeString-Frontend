@@ -1,9 +1,9 @@
-import { motion } from 'framer-motion';
+
 import '../Styles/navTop.css';
 import {GiSteeltoeBoots} from 'react-icons/gi';
 import { Link } from 'react-router-dom';
 import {HiUserCircle} from 'react-icons/hi';
-
+import { motion } from 'framer-motion';
 
 
 const NavTop = () => {
@@ -18,7 +18,7 @@ const NavTop = () => {
             <h3 id='app-name'>ShoeString</h3>
           </motion.div>
           <motion.div whileHover={{scale:1.1}} transition={{duration:.8}} className='profile-icon'>
-            <Link to='/profile'><HiUserCircle /></Link>
+            <div><HiUserCircle /></div>
           </motion.div>
         </div>
       </div>
