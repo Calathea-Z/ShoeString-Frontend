@@ -1,5 +1,5 @@
 import { MdClose } from 'react-icons/md';
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { BsFillChatSquareTextFill } from "react-icons/bs"
 import '../Styles/createPost.css';
 

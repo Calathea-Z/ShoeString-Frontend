@@ -5,7 +5,7 @@ import { FiMapPin } from "react-icons/fi"
 import { BsFillChatSquareTextFill } from "react-icons/bs"
 import { useState, useEffect } from "react"
 
-function PostCard({ username, userphoto, _id, img, location, body, tags, likes }) {
+function PostCard({ username, _id, img, location, body, tags, likes }) {
     const [post, setPost] = useState([])
     const [newEditForm, setNewEditForm] = useState("")
 
