@@ -2,7 +2,6 @@ import '../Styles/feed.css';
 import './PostCard';
 import PostCard from './PostCard';
 import React, { useState, useEffect } from 'react';
-import CreatePost from './CreatePost';
 
 function Feed() {
 
@@ -20,9 +19,8 @@ function Feed() {
     }
     useEffect(() => {
         getPosts()
-    }, []);
+    }, [post]);
 
-//-----------------------------------------------------------
   return ( 
   <>
     <div className='feed-full'>

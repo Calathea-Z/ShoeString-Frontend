@@ -1,70 +1,166 @@
-.post {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 10px;
-    padding: 100px;
-    background-color: white;
-    border: 1px solid lightgrey;
-    height:98vh;
-}
-
-.post-body {
+.darker-background {
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -91.8%);
+    position: absolute;
+  }
+  
+  .center-it {
+    z-index: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-150%, -58%);
+  }
+  
+  .modal {
+    width: 300%;
+    height: 75vh;
+    background: rgb(240, 251, 250);
+    color: white;
+    z-index: 500;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+  }
+  
+  .modal-header{
+    height: 50px;
+    background: white;
+    overflow: hidden;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+  }
+  
+  .modal-title {
+    margin: 0;
     padding: 10px;
-}
-
-.post-image {
+    color: #2c3e50;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+  }
+  
+  .modal-body{
+    padding: 10px;
+    font-size: 14px;
+    color: #2c3e50;
+    text-align: center;
+  }
+  
+  .modal-buttons{
+    position: relative;
+    bottom: 2px;
+    margin-bottom: px;
     width: 100%;
-    object-fit: contain;
-    border-top: 1px solid lightgray;
-    border-bottom: 1px solid lightgray;
-}
-
-.post-text {
-    font-weight: normal;
-    padding: 15px 20px;
-}
-
-.post-header {
+  }
+  
+  .modal-buttons-container {
     display: flex;
+    justify-content: space-around;
     align-items: center;
-    padding: 15px 20px;
-}
+  }
+  
+  .close-button{
+    cursor: pointer;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 8px;
+    border: none;
+    font-size: 18px;
+    color: #2c3e50;
+    background: white;
+    transition: all 0.25s ease;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.06);
+    position: absolute;
+    right: 0;
+    top: 0;
+    align-self: flex-end;
+    margin-top: -7px;
+    margin-right: -557px;
+  }
+  
+  .close-button:hover {
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+    transform: translate(-4px, 4px);
+  }
+  
+  .delete-button {
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 11px 28px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    border: none;
+    color: #fff;
+    background: #3edfff;
+    transition: all 0.25s ease;
+  }
+  
+  .delete-button:hover {
+    box-shadow: 0 10px 20px -10px rgba(255, 62, 78, 0.6);
+    transform: translateY(-5px);
+    background: #ff3e4e;
+  }
+  
+  .cancel-button {
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 11px 28px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    border: none;
+    color: #2c3e50;
+    background: #d8d8d8;
+    transition: all 0.25s ease;
+  }
+  
+  .cancel-button:hover {
+    box-shadow: none;
+    transform: none;
+    background: rgb(4, 255, 201);
+  }
 
-.post-icon-non-feed {
-    color: black;
-    background-color: white;
-    padding-right: 10px; padding-left: 5px;
-    font-size: 25px;
-}
+  .close{
+    margin-bottom: -3px;
+  }
 
-.create-post-submit {
-    margin: 0 auto;
-    width: 40vw;
-}
-
-.post-body-form form {
+  .image-upload-box {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+    object-fit: contain;
+  }
 
+  @media screen and (max-width: 600px) {
 
+.darker-background {
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 95%;
+    height: 100%;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-20%, -180%);
+    position: absolute;
+  }
 
-.flex-box {
-    display: flex;
-    gap: 20px;
-    padding-bottom: 15px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
+  .modal {
+    width: 150%;
+    height: 100%;
+    background: rgb(240, 251, 250);
+    color: white;
+    z-index: 500;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+  }
 
-.feed-comment-format {
-    display: flex;
-    justify-content: flex-start;
-    gap: 10px;
-}
-
-@media screen and (max-width: 600px) {
+  .center-it {
+    transform: translate(-140%, -150%);
+  }
     
 }
+
