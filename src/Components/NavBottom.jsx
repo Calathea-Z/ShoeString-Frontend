@@ -1,11 +1,15 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import {HiSearch} from 'react-icons/hi';
 import {FaPencilAlt} from 'react-icons/fa';
+import Modal from './Modal'
+import { useState } from 'react'
 
 import '../Styles/navBottom.css'
 
-const NavBottom = ({onClickProp}) => {
+const NavBottom = (props) => {
+
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <nav className='full-bottom'>
       <div className='bottom-footer'>
@@ -18,6 +22,10 @@ const NavBottom = ({onClickProp}) => {
           </motion.div>
         </div>
       </div>
+      <button className='primaryBtn' onClick={() => setIsOpen(true) }>
+        OpenModal
+      </button>
+      {isOpen && <Modal setIsOpen={setIsOpen} />}
     </nav>
   )
 }

@@ -1,9 +1,9 @@
 import "../Styles/createPost.css"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { BsFillChatSquareTextFill } from "react-icons/bs"
 // import UploadWidget from '../Components/UploadWidget'
 
-const CreatePost = ({ userName, body, imageURL, _id, user }) => {
+const CreatePost = () => {
     const [image, setImage] = useState(" ")
     const [newForm, setNewForm] = useState({
         body: " ",
