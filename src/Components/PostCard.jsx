@@ -2,6 +2,7 @@ import "../Styles/postCard.css"
 import { motion } from 'framer-motion';
 import { ImHeart } from "react-icons/im"
 import { FiMapPin } from "react-icons/fi"
+import { CgProfile } from 'react-icons/cg'
 import { BsFillChatSquareTextFill } from "react-icons/bs"
 import { useState, useEffect } from "react"
 
@@ -63,7 +64,7 @@ function PostCard({ username, _id, img, location, body, tags, likes }) {
     <div className='post-individual-full'>
       <div className='post-individual-header'>
         <div className='mini-profile-image'>
-          <img id='mini-profile' src={'https://cps-static.rovicorp.com/2/Open/Getty/Trey%20Anastasio/_derived_jpg_q90_250x250_m0/56790670.jpg?partner=allrovi.com'}/>
+          <CgProfile/>
         </div>
         <div>
           <p>{username}</p>
