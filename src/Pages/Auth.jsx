@@ -3,6 +3,7 @@ import { useContext } from "react"
 import { UserContext } from "../data"
 import RegisterForm from "./RegisterForm"
 import LoginForm from "./LoginForm"
+import "../Styles/Auth.css"
 
 const Auth = (props) => {
     const { setAuth, setUser } = useContext(UserContext)
@@ -69,11 +70,10 @@ const Auth = (props) => {
     }
 
     return (
-        <section>
-            <h1>Login / Register Container</h1>
+        <div className="Auth">
             <RegisterForm signUp={registerUser} />
             <LoginForm signIn={loginUser} />
-        </section>
+        </div>
     )
 }
 

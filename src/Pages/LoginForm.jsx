@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
+import "../Styles/LoginForm.css"
 
 const LoginForm = ({ signIn }) => {
     const initialState = { username: "", password: "" }
@@ -11,7 +12,7 @@ const LoginForm = ({ signIn }) => {
         const createdUserToken = await signIn(input)
 
         if (createdUserToken) {
-            navigate("/posts")
+            navigate("/")
         } else {
             navigate("/auth")
         }
@@ -24,18 +25,18 @@ const LoginForm = ({ signIn }) => {
 
     return (
         <>
-            <h1>Login</h1>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="username">Username: </label>
-                <input id="username" name="username" value={input.username} onChange={handleChange} />
-                <br />
-                <br />
-                <label htmlFor="password">Password: </label>
-                <input id="password" name="password" value={input.password} onChange={handleChange} />
-                <br />
-                <br />
-                <input type="submit" value="Login" />
-            </form>
+            <div className="LoginForm">
+                <h1>Login</h1>
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor="username">
+                        <input id="username" name="username" placeholder="username" value={input.username} onChange={handleChange} />
+                    </label>
+                    <label htmlFor="password">
+                        <input id="password" name="password" placeholder="password" value={input.password} onChange={handleChange} />
+                    </label>
+                    <input type="submit" value="Login" />
+                </form>
+            </div>
         </>
     )
 }

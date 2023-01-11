@@ -1,6 +1,13 @@
-.auth {
-    padding:20px;
+.Auth {
+    border:2px solid orange;
+    display:flex;
+    flex-direction: column;
+    width:85vw;
+    margin: 0 auto;
 }
-.RegisterForm {
-    margin-top:50px;
+input[type=submit]{
+    background-color:black;
+    color:white;
+    width:30vw;
+    margin: 10px auto;
 }
